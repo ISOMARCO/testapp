@@ -1,0 +1,11 @@
+{
+    "name": "FrontApp",
+    "alias": "frontapp",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\FrontApp\\App\\Providers\\FrontAppServiceProvider"
+    ],
+    "files": []
+}
