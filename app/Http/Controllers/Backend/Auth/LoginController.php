@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\Auth\LoginRequest;
 use App\Services\Backend\Auth\LoginService;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
+//use Illuminate\View\View;
 use function App\Http\Controllers\Backend\view;
 
 class LoginController extends Controller
@@ -20,15 +20,15 @@ class LoginController extends Controller
         $this->loginService = $loginService;
     }
 
-    public function index() : View
+    public function index()
     {
         return view('Backend.pages.auth.index');
     }
     public function loginRequest(LoginRequest $loginRequest)
     {
-        $loginRequest->validated();
-        $loginRequest->email;
-        $this->loginService->checkEmail($loginRequest->email);
+//        $loginRequest->validated();
+//        $loginRequest->email;
+//        $this->loginService->checkEmail($loginRequest->email);
         return redirect()->route('backend.dashboard');
     }
 }
