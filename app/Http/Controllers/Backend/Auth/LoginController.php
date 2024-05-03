@@ -6,8 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\Auth\LoginRequest;
 use App\Services\Backend\Auth\LoginService;
 use Illuminate\Http\Request;
-//use Illuminate\View\View;
-use function App\Http\Controllers\Backend\view;
+use Illuminate\View\View;
 
 class LoginController extends Controller
 {
@@ -20,7 +19,7 @@ class LoginController extends Controller
         $this->loginService = $loginService;
     }
 
-    public function index()
+    public function index() : View
     {
         return view('Backend.pages.auth.index');
     }
