@@ -19,6 +19,6 @@ class LoginRequestHandler
         {
             return redirect()->route('dashboard');
         }
-        return view('pages.auth.index');
+        return view('Backend.pages.auth.index');
     }
 }
