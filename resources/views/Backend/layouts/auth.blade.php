@@ -55,6 +55,11 @@
 <script src="{{asset('assets/js/custom/authentication/sign-in/general.js')}}"></script>
 <!--end::Custom Javascript-->
 <!--end::Javascript-->
+<script>
+    $(document).ready(function(){
+        alert("OK");
+    });
+</script>
 </body>
 <!--end::Body-->
 </html>
