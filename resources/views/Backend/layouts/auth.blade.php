@@ -39,7 +39,7 @@
         @yield('content')
         <!--end::Body-->
         <!--begin::Aside-->
-        @include('sections.auth.aside')
+        @include('Backend.sections.auth.aside')
         <!--end::Aside-->
     </div>
     <!--end::Authentication - Sign-in-->
