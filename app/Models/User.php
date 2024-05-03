@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Softdelete;
 use Illuminate\Database\Eloquent\Attribute;
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, Softdeletes;
+    use HasApiTokens, HasFactory, Notifiable, Softdelete;
 
     protected string $table = 'users';
 
