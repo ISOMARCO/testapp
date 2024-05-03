@@ -57,6 +57,7 @@
 <!--end::Javascript-->
 <script>
     $(document).ready(function(){
+        let progressIconClassName = 'fas fa-spinner fa-spin fa-lg';
         $(document).on("click", "#kt_sign_in_submit", function(){
             $.ajax({
                 type: "post",
@@ -65,15 +66,14 @@
                 dataType: "json",
                 beforeSend: function()
                 {
-
+                    $("#kt_sign_in_submit").find("i").removeClass().addClass(progressIconClassName);
                 },
                 success: function(e)
                 {
-
                 },
                complete: function()
                {
-
+                     $("#kt_sign_in_submit").find("i").removeClass();
                }
             });
         });

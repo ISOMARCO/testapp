@@ -44,7 +44,7 @@
                     <div class="d-grid mb-10">
                         <button type="button" id="kt_sign_in_submit" class="btn btn-primary">
                             <span class="indicator-label">Submit</span>
-                            <i class="fas fa-spinner fa-spin fa-lg" style="display: none"></i>
+                            <i></i>
                         </button>
                     </div>
                     <!--end::Submit button-->
