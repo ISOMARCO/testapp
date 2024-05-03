@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('password');
             $table->string('country')->default('Azerbaijan');
             $table->string('category')->nullable();
-            $table->timestamps('creating_date');
-            $table->timestamp('update_date')->nullable();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->nullable();
             $table->string('ip', 20)->nullable();
         });
     }
