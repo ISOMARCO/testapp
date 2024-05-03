@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('surname')->nullable();
             $table->string('email')->unique();
             $table->string('password');
             $table->string('country')->default('Azerbaijan');
             $table->string('category')->nullable();
-            //bas ofisin unvani
             $table->timestamps('creating_date');
             $table->timestamp('update_date')->nullable();
             $table->string('ip', 20)->nullable();
