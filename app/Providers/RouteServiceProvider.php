@@ -35,6 +35,12 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
+
+            Route::middleware('backend_auth_web')
+                ->prefix('/admin/auth/')
+                ->name('auth.')
+                ->namespace($this->namespace."\Backend")
+                ->group(base_path('routes/Backend/Auth/web.php'));
         });
     }
 }
