@@ -15,10 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+            $table->string('country')->default('Azerbaijan');
+            $table->string('category')->nullable();
+            //bas ofisin unvani
+            $table->timestamps('creating_date');
+            $table->timestamp('update_date')->nullable();
+            $table->string('ip', 20)->nullable();
         });
     }
 

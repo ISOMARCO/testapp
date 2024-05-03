@@ -25,9 +25,8 @@ class LoginController extends Controller
     }
     public function loginRequest(LoginRequest $loginRequest)
     {
-//        $loginRequest->validated();
+        $loginRequest->validated();
 //        $loginRequest->email;
 //        $this->loginService->checkEmail($loginRequest->email);
-        return redirect()->route('backend.dashboard');
     }
 }
