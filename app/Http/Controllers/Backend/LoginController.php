@@ -9,6 +9,6 @@ class LoginController extends Controller
 {
     public function index()
     {
-        return view('backend.auth.login');
+        return view('Backend.auth.login');
     }
 }
