@@ -7,7 +7,7 @@
             <!--begin::Wrapper-->
             <div class="w-lg-500px p-10">
                 <!--begin::Form-->
-                <form class="form w-100" novalidate="novalidate" method="post"  action="{{route('login')}}">
+                <form class="form w-100" novalidate="novalidate" method="post"  action="{{route('auth.loginRequest')}}">
                     @csrf
                     <!--begin::Heading-->
                     <div class="text-center mb-11">
