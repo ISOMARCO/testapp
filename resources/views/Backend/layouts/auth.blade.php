@@ -58,7 +58,7 @@
 <script>
     $(document).ready(function(){
         $(document).on("click", "#kt_sign_in_submit", function(){
-            $("form").submit();
+            alert("OK1");
         });
     });
 </script>
