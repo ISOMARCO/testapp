@@ -10,6 +10,6 @@ class LoginController extends Controller
 {
     public function index() : View
     {
-        return view('Backend.pages.auth.login');
+        return view('Backend.pages.auth.index');
     }
 }
