@@ -42,14 +42,8 @@
                     <!--end::Wrapper-->
                     <!--begin::Submit button-->
                     <div class="d-grid mb-10">
-                        <button type="submit" id="kt_sign_in_submit" class="btn btn-primary">
-                            <!--begin::Indicator label-->
+                        <button type="button" id="kt_sign_in_submit" class="btn btn-primary">
                             <span class="indicator-label">Submit</span>
-                            <!--end::Indicator label-->
-                            <!--begin::Indicator progress-->
-                            <span class="indicator-progress">Please wait...
-										<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-                            <!--end::Indicator progress-->
                         </button>
                     </div>
                     <!--end::Submit button-->
