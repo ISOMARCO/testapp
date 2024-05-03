@@ -15,7 +15,8 @@ class LoginRequestHandler
 
     public function __invoke(Request $request): View|RedirectResponse
     {
-        if (Auth::check()) {
+        if(Auth::check())
+        {
             return redirect()->route('dashboard');
         }
         return view('pages.auth.index');
