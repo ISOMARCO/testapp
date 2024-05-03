@@ -7,10 +7,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-
+use Illuminate\Database\Eloquent\Softdeletes;
+use Illuminate\Database\Eloquent\Attribute;
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, Softdeletes;
+
+    protected string $table = 'users';
 
     /**
      * The attributes that are mass assignable.
@@ -19,8 +22,12 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'surname',
         'email',
         'password',
+        'email',
+        'country',
+        'category'
     ];
 
     /**
@@ -29,8 +36,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        'password'
     ];
 
     /**
@@ -39,7 +45,19 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'created_at' => 'timestamp',
         'password' => 'hashed',
     ];
+    protected $dates = [
+        'created_at',
+        'updated_at',
+    ];
+
+    protected function name() : Attribute
+    {
+        return Attribute::make(
+            get: fn(string $value) => ucfirst($this->name),
+            set: fn(string $value) => $this->attributes['name'] = ucfirst($value)
+        );
+    }
 }

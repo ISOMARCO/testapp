@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Backend\Auth;
 
 use App\Http\Controllers\Controller;
@@ -10,19 +9,27 @@ use Illuminate\View\View;
 
 class LoginController extends Controller
 {
+    protected mixed $loginService;
     /**
-     * @return View
+     * @param LoginService $loginService
      */
-    protected $loginService;
     public function __construct(LoginService $loginService)
     {
         $this->loginService = $loginService;
     }
 
+    /**
+     * @return View
+     */
     public function index() : View
     {
         return view('Backend.pages.auth.index');
     }
+
+    /**
+     * @param LoginRequest $loginRequest
+     * @return void
+     */
     public function loginRequest(LoginRequest $loginRequest)
     {
         $loginRequest->validated();
