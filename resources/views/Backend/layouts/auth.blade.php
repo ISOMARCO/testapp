@@ -58,7 +58,24 @@
 <script>
     $(document).ready(function(){
         $(document).on("click", "#kt_sign_in_submit", function(){
-            alert("OK1");
+            $.ajax({
+                type: "post",
+                url: "{{route('Backend.auth.login')}}",
+                data: $(".form").serialize(),
+                dataType: "json",
+                beforeSend: function()
+                {
+
+                },
+                success: function(e)
+                {
+
+                },
+               complete: function()
+               {
+
+               }
+            });
         });
     });
 </script>

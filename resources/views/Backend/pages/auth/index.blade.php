@@ -43,7 +43,7 @@
                     <!--begin::Submit button-->
                     <div class="d-grid mb-10">
                         <button type="button" id="kt_sign_in_submit" class="btn btn-primary">
-                            <span class="indicator-label">Submit</span>
+                            <span class="indicator-label">Submit <i class="fas fa-exclamation-triangle"></i></span>
                         </button>
                     </div>
                     <!--end::Submit button-->
