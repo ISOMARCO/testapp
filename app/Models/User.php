@@ -46,7 +46,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'created_at' => 'timestamp',
-        'password' => 'hashed',
+        'password' => 'hashed'
     ];
     protected $dates = [
         'created_at',
@@ -56,8 +56,40 @@ class User extends Authenticatable
     protected function name() : Attribute
     {
         return Attribute::make(
-            get: fn(string $value) => ucfirst($this->name),
-            set: fn(string $value) => $this->attributes['name'] = ucfirst($value)
+            get: fn(string $value) => ucfirst($value),
+            set: fn(string $value) => ucfirst($value)
+        );
+    }
+
+    protected function surname() : Attribute
+    {
+        return Attribute::make(
+            get: fn(string $value) => ucfirst($value),
+            set: fn(string $value) => ucfirst($value)
+        );
+    }
+
+    protected function email() : Attribute
+    {
+        return Attribute::make(
+            get: fn(string $value) => strtolower($value),
+            set: fn(string $value) => strtolower($value)
+        );
+    }
+
+    protected function country() : Attribute
+    {
+        return Attribute::make(
+            get: fn(string $value) => ucfirst($value),
+            set: fn(string $value) => ucfirst($value)
+        );
+    }
+
+    protected function category() : Attribute
+    {
+        return Attribute::make(
+            get: fn(string $value) => ucfirst($value),
+            set: fn(string $value) => ucfirst($value)
         );
     }
 }
