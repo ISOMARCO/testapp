@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Database\Eloquent\Softdelete;
+use Illuminate\Database\Eloquent\Softdeletes;
 use Illuminate\Database\Eloquent\Attribute;
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, Softdelete;
+    use HasApiTokens, HasFactory, Notifiable, Softdeletes;
 
     protected string $table = 'users';
 
@@ -51,6 +51,7 @@ class User extends Authenticatable
     protected $dates = [
         'created_at',
         'updated_at',
+        'deleted_at'
     ];
 
     protected function name() : Attribute

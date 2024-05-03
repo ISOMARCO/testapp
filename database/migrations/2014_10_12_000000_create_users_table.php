@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('category')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();
+            $table->timestamp('deleted_at')->nullable();
             $table->string('ip', 20)->nullable();
         });
     }
