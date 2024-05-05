@@ -75,7 +75,7 @@
                 error: function(x)
                 {
                     var errorResponse = x.responseJSON || x.responseText;
-                    console.log(errorResponse);
+                    console.log(errorResponse.errors.email[0]);
                 },
                complete: function()
                {
