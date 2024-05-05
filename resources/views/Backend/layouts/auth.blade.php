@@ -72,6 +72,11 @@
                 {
                     console.log(e);
                 },
+                error: function(x)
+                {
+                    var errorResponse = x.responseJSON || x.responseText;
+                    console.log(errorResponse);
+                },
                complete: function()
                {
                      $("#kt_sign_in_submit").find("i").removeClass();
