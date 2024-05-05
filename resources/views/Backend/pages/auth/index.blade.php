@@ -23,7 +23,7 @@
                     <div class="fv-row mb-8">
                         <input type="text" placeholder="Email" name="email" autocomplete="off" class="form-control bg-transparent" />
                         <ul class="text-danger">
-                            <li class="fv-plugins-message-container">Deneme</li>
+                            <li class="">Deneme</li>
                         </ul>
                     </div>
                     <!--end::Input group=-->
