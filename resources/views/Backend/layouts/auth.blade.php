@@ -72,7 +72,7 @@
                 error: function(x)
                 {
                     var errorResponse = x.responseJSON || x.responseText;
-                    errorResponse.forEach(function(key, value){
+                    errorResponse.errors.forEach(function(key, value){
                         console.log(key);
                         console.log(value);
                     });
