@@ -57,7 +57,7 @@
     $(document).ready(function(){
         let progressIconClassName = 'fas fa-spinner fa-spin fa-lg';
         $(document).on("click", "#kt_sign_in_submit", function(){
-            Swaol.fire({
+            Swal.fire({
                 title: 'Processing...',
                 text: 'demo',
                 icon: 'info'
