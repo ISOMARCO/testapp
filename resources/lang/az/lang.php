@@ -1,7 +1,5 @@
-<?php 
+<?php
 
 return [
-    'Backend/Auth/lang' => [
-        'password_required' => '',
-    ],
+    'password_required' => 'Şifrə tələb olunur'
 ];
