@@ -61,7 +61,7 @@
         $(document).on("click", "#kt_sign_in_submit", function(){
             $.ajax({
                 type: "post",
-                url: "{{route('Backend.auth.login')}}",
+                url: "{{route('Backend.auth.loginRequest')}}",
                 data: $(".form").serialize(),
                 dataType: "json",
                 beforeSend: function()

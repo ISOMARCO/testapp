@@ -5,3 +5,4 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/loginRequest', [LoginController::class, 'loginRequest'])->name('loginRequest');
