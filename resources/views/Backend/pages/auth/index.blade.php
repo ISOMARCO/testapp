@@ -21,9 +21,10 @@
                     <!--begin::Heading-->
                     <!--begin::Input group=-->
                     <div class="fv-row mb-8">
-                        <!--begin::Email-->
                         <input type="text" placeholder="Email" name="email" autocomplete="off" class="form-control bg-transparent" />
-                        <!--end::Email-->
+                        <ul class="text-danger">
+                            <li class="fv-plugins-message-container">Deneme</li>
+                        </ul>
                     </div>
                     <!--end::Input group=-->
                     <div class="fv-row mb-3">
