@@ -72,8 +72,10 @@
                 error: function(x)
                 {
                     var errorResponse = x.responseJSON || x.responseText;
-
-                    console.log(errorResponse.errors);
+                    $.each(Object.entries(errorResponse.errors), function(index, value){
+                        //$("#"+index[0]+"-error").html("<li>"+value[0]+"</li>");
+                        console.log(key+" "+value);
+                    });
                 },
                complete: function()
                {
