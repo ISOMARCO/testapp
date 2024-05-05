@@ -34,7 +34,6 @@ class LoginController extends Controller
     public function loginRequest(LoginRequest $loginRequest) : JsonResponse
     {
         $credentials = $loginRequest->validated();
-        //$credentials['email'] = $loginRequest->email;
         return response()->json($credentials);
 //        $loginRequest->email;
     }
