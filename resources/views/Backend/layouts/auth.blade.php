@@ -70,14 +70,12 @@
                 },
                 success: function(e)
                 {
-                    console.log("burdayam");
                     console.log(e);
                 },
                 error: function(x)
                 {
-                    console.log("burdayam78");
                     var errorResponse = x.responseJSON || x.responseText;
-                    console.log(errorResponse);
+                    console.log(errorResponse.message);
                 },
                complete: function()
                {

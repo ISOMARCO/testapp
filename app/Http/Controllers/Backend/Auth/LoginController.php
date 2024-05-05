@@ -35,7 +35,7 @@ class LoginController extends Controller
     {
         $credentials = $loginRequest->validated();
         //$credentials['email'] = $loginRequest->email;
-        return response()->json($credentials, 500);
+        return response()->json($credentials);
 //        $loginRequest->email;
     }
 }
