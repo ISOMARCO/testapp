@@ -74,13 +74,13 @@
                 error: function(x)
                 {
                     var errorResponse = x.responseJSON || x.responseText;
-                    if(errorResponse.errors)
+                    if(errorResponse.type === 'validation_error')
                     {
-                        $.each(Object.entries(errorResponse.errors), function (index, value) {
+                        $.each(Object.entries(errorResponse.message), function (index, value) {
                             $("#" + value[0] + "-error").html("<li>" + value[1] + "</li>");
                         });
                     }
-                    else if(errorResponse.error === 'authError')
+                    else if(errorResponse.type === 'auth_error')
                     {
                         Swal.fire({
                             title: '',

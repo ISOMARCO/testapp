@@ -53,8 +53,8 @@ class LoginRequest extends FormRequest
         $errors = $validator->errors()->getMessages();
 
         throw new HttpResponseException(new JsonResponse([
-            'message' => 'Validation failed',
-            'errors' => $errors  // Tüm hata mesajlarını key-value çiftleri olarak dön
-        ], 422));  // 422 Unprocessable Entity HTTP status code kullanılabilir
+            'type' => 'validation_error',
+            'message' => $errors
+        ], 422));
     }
 }

@@ -38,7 +38,7 @@ class LoginController extends Controller
         if($login === false)
         {
             return response()->json([
-                'error' => 'authError',
+                'type' => 'auth_error',
                 'message' => 'Email və ya şifrə doğru deyil'
             ], 500);
         }
