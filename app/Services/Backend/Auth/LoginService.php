@@ -7,12 +7,11 @@ class LoginService
     {
     }
 
-    public function authenticate() : bool
+    public function authenticate(array $credentials) : bool
     {
-        if(Auth::check())
+        if(Auth::attempt($credentials))
         {
             return true;
-            //return redirect()->route('backend.dashboard');
         }
         return false;
     }
