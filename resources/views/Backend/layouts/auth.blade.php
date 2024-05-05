@@ -72,11 +72,8 @@
                 error: function(x)
                 {
                     var errorResponse = x.responseJSON || x.responseText;
-                    errorResponse.errors.each(function(key, value){
-                        console.log(key);
-                        console.log(value);
-                    });
-                    //console.log(errorResponse.errors.email[0]);
+
+                    console.log(errorResponse.errors);
                 },
                complete: function()
                {
