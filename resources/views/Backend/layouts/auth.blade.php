@@ -89,7 +89,7 @@
                     }
                     else
                     {
-                        Swal.fire({
+                        return Swal.fire({
                             title: '',
                             text: 'Bilinməyən xəta baş verdi. Zəhmət olmasa yenidən cəhd edin.',
                             icon: 'error'
