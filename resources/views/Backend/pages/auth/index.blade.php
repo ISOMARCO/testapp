@@ -30,19 +30,11 @@
                         <ul class="text-danger" id="password-error"></ul>
                     </div>
                     <!--end::Input group=-->
-                    <!--begin::Wrapper-->
-                    <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
-                        <div></div>
-                        <!--begin::Link-->
-                        {{--<a href="authentication/layouts/corporate/reset-password.html" class="link-primary">Forgot Password ?</a>--}}
-                        <!--end::Link-->
-                    </div>
-                    <!--end::Wrapper-->
                     <!--begin::Submit button-->
                     <div class="d-grid mb-10">
                         <button type="button" id="kt_sign_in_submit" class="btn btn-primary">
                             <span class="indicator-label">Submit</span>
-                            <i></i>
+                            <i class="fas fa-spinner fa-spin fa-lg" style="display: none"></i>
                         </button>
                     </div>
                     <!--end::Submit button-->

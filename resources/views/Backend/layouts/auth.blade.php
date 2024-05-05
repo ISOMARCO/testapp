@@ -65,7 +65,7 @@
                 dataType: "json",
                 beforeSend: function()
                 {
-                    $("#kt_sign_in_submit").find("i").addClass(progressIconClassName);
+                    $("#kt_sign_in_submit i").show();
                 },
                 success: function(e)
                 {
@@ -99,7 +99,7 @@
                 },
                complete: function()
                {
-                     $("#kt_sign_in_submit").find("i").removeAttr("class");
+                     $("#kt_sign_in_submit i").hide();
                }
             });
         });
