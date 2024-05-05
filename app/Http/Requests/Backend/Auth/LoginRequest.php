@@ -35,7 +35,7 @@ class LoginRequest extends FormRequest
         return [
             'email.required' => 'Email daxil edilməlidir',
             'email.email' => 'Düzgün email daxil edin',
-            'password.required' => trans('Backend/auth.password_required')
+            'password.required' => __('Backend/auth.password_required')
 
         ];
     }
