@@ -10,7 +10,7 @@ return [
     | Possible values : array, json
     |
     */
-    'file_type' => 'json',
+    'file_type' => 'array',
 
     /*
     |--------------------------------------------------------------------------
