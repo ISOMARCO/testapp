@@ -63,7 +63,7 @@
                 dataType: "json",
                 beforeSend: function()
                 {
-                    $("#kt_sign_in_submit").find("i").removeAttr("class").addClass(progressIconClassName);
+                    $("#kt_sign_in_submit").find("i").addClass(progressIconClassName);
                 },
                 success: function(e)
                 {
