@@ -50,12 +50,18 @@
 <!--begin::Global Javascript Bundle(mandatory for all pages)-->
 <script src="{{asset('assets/plugins/global/plugins.bundle.js')}}"></script>
 <script src="{{asset('assets/js/scripts.bundle.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!--end::Global Javascript Bundle-->
 <!--end::Javascript-->
 <script>
     $(document).ready(function(){
         let progressIconClassName = 'fas fa-spinner fa-spin fa-lg';
         $(document).on("click", "#kt_sign_in_submit", function(){
+            Swaol.fire({
+                title: 'Processing...',
+                text: 'demo',
+                icon: 'info'
+            });
             $.ajax({
                 type: "post",
                 url: "{{route('Backend.auth.loginRequest')}}",
@@ -72,9 +78,20 @@
                 error: function(x)
                 {
                     var errorResponse = x.responseJSON || x.responseText;
-                    $.each(Object.entries(errorResponse.errors), function(index, value){
-                        $("#"+value[0]+"-error").html("<li>"+value[1]+"</li>");
-                    });
+                    if(errorResponse.errors)
+                    {
+                        $.each(Object.entries(errorResponse.errors), function (index, value) {
+                            $("#" + value[0] + "-error").html("<li>" + value[1] + "</li>");
+                        });
+                    }
+                    else if(errorResponse.error === 'authError')
+                    {
+                        Swal.fire({
+                            title: '',
+                            text: errorResponse.message,
+                            icon: 'error'
+                        });
+                    }
                 },
                complete: function()
                {

@@ -34,7 +34,16 @@ class LoginController extends Controller
     public function loginRequest(LoginRequest $loginRequest) : JsonResponse
     {
         $credentials = $loginRequest->validated();
-        return response()->json([$loginRequest->email]);
-//        $loginRequest->email;
+        $login = $this->loginService->authenticate($credentials);
+        if($login === false)
+        {
+            return response()->json([
+                'error' => 'authError',
+                'message' => 'Email və ya şifrə doğru deyil'
+            ], 500);
+        }
+        return response()->json([
+            'message' => 'Giriş uğurla başa çatdı'
+        ], 200);
     }
 }
