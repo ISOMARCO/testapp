@@ -10,7 +10,7 @@ return [
     | Possible values : array, json
     |
     */
-    'file_type' => 'array',
+    'file_type' => 'json',
 
     /*
     |--------------------------------------------------------------------------
@@ -31,5 +31,5 @@ return [
     | The specified folders will be created in the resource/lang folder
     |
     */
-    'languages' => ['en'],
+    'languages' => ['en', 'az'],
 ];
