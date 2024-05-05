@@ -73,8 +73,7 @@
                 {
                     var errorResponse = x.responseJSON || x.responseText;
                     $.each(Object.entries(errorResponse.errors), function(index, value){
-                        //$("#"+index[0]+"-error").html("<li>"+value[0]+"</li>");
-                        console.log(value[0]+" "+value[1]);
+                        $("#"+value[0]+"-error").html("<li>"+value[1]+"</li>");
                     });
                 },
                complete: function()
