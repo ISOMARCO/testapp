@@ -22,8 +22,8 @@
                     <!--begin::Input group=-->
                     <div class="fv-row mb-8">
                         <input type="text" placeholder="Email" name="email" autocomplete="off" class="form-control bg-transparent" />
-                        <ul class="text-danger">
-                            <li class="">Deneme</li>
+                        <ul class="text-danger" id="email-error">
+
                         </ul>
                     </div>
                     <!--end::Input group=-->
