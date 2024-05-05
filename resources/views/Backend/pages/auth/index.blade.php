@@ -22,15 +22,12 @@
                     <!--begin::Input group=-->
                     <div class="fv-row mb-8">
                         <input type="text" placeholder="Email" name="email" autocomplete="off" class="form-control bg-transparent" />
-                        <ul class="text-danger" id="email-error">
-
-                        </ul>
+                        <ul class="text-danger" id="email-error"></ul>
                     </div>
                     <!--end::Input group=-->
                     <div class="fv-row mb-3">
-                        <!--begin::Password-->
                         <input type="password" placeholder="Şifrə" name="password" autocomplete="off" class="form-control bg-transparent" />
-                        <!--end::Password-->
+                        <ul class="text-danger" id="password-error"></ul>
                     </div>
                     <!--end::Input group=-->
                     <!--begin::Wrapper-->
