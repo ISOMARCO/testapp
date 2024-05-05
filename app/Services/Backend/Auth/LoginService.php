@@ -7,11 +7,12 @@ class LoginService
     {
     }
 
-    public function checkEmail($email) : bool|string
+    public function authenticate() : bool
     {
-        if($email)
+        if(Auth::check())
         {
-            return $email;
+            return true;
+            //return redirect()->route('backend.dashboard');
         }
         return false;
     }

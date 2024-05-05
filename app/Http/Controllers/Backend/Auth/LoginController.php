@@ -6,6 +6,7 @@ use App\Http\Requests\Backend\Auth\LoginRequest;
 use App\Services\Backend\Auth\LoginService;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Http\JsonResponse;
 
 class LoginController extends Controller
 {
@@ -30,10 +31,11 @@ class LoginController extends Controller
      * @param LoginRequest $loginRequest
      * @return void
      */
-    public function loginRequest(LoginRequest $loginRequest)
+    public function loginRequest(LoginRequest $loginRequest) : JsonResponse
     {
-        $loginRequest->validated();
+        $credentials = $loginRequest->validated();
+        //$credentials['email'] = $loginRequest->email;
+        return response()->json($credentials);
 //        $loginRequest->email;
-//        $this->loginService->checkEmail($loginRequest->email);
     }
 }

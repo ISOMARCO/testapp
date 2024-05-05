@@ -27,6 +27,16 @@ class LoginRequest extends FormRequest
         ];
     }
 
+    public function messages() : array
+    {
+        return [
+            'email.required' => 'Email daxil edilməlidir',
+            'email.email' => 'Düzgün email daxil edin',
+            'password.required' => 'Şifrə daxil edilməlidir'
+
+        ];
+    }
+
     public function attributes() : array
     {
         return [
