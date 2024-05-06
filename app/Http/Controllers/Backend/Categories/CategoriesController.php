@@ -49,4 +49,21 @@ class CategoriesController extends Controller
             'message' => 'Kateqoriya yenilənərkən xəta baş verdi'
         ], 500);
     }
+
+    public function createRequest(CategoriesRequest $categoriesRequest) : JsonResponse
+    {
+        $data = $categoriesRequest->validated();
+        $create = $this->categoriesService->createCategory($data);
+        if($create[0] === true)
+        {
+            return response()->json([
+                'message' => 'Kateqoriya uğurla əlavə edildi',
+                'data' => ['name' => $create[1]->name, 'id' => $create[1]->id]
+            ], 200);
+        }
+        return response()->json([
+            'type' => 'create_error',
+            'message' => 'Kateqoriya əlavə edilərkən xəta baş verdi'
+        ], 500);
+    }
 }

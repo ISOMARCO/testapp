@@ -21,7 +21,7 @@
             <!--begin::Modal body-->
             <div class="modal-body scroll-y px-10 px-lg-15 pt-5 pb-15">
                 <!--begin:Form-->
-                <form id="kt_modal_new_target_form" class="create_form">
+                <form method="POST" id="kt_modal_new_target_form" class="create_form">
                     <div class="row">
                         <div class="col-12 col-lg-12">
                             <!--begin::Input group-->
@@ -34,24 +34,23 @@
                                     <!--begin::Input-->
                                     <input type="text" name="name" class="form-control  mb-3 mb-lg-0"
                                            placeholder="Kateqoriya adı" />
+                                    <ul class="mt-3 name-error"></ul>
                                     <!--end::Input-->
                                 </div>
-
                                 <!--end::Input group-->
                             </div>
                         </div>
                         <!--begin::Actions-->
                         <div class="text-center mt-5">
-                            <button type="button" id="kt_modal_new_target_submit" class="btn btn-primary">
+                            <button type="button" id="create_modal_btn" class="btn btn-primary">
                                 <span class="indicator-label">Yadda saxla</span>
-                                <span class="indicator-progress">Zəhmət olmasa gözləyin...
-                                    <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                             </button>
                             <button type="reset" id="kt_modal_new_target_cancel"
                                     class="btn btn-light me-3">Sıfırla</button>
                         </div>
                         <!--end::Actions-->
                     </div>
+                    @csrf
                 </form>
                 <!--end:Form-->
             </div>
