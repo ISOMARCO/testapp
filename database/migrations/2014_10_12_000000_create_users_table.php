@@ -19,10 +19,11 @@ return new class extends Migration
             $table->string('password');
             $table->string('country')->default('Azerbaijan');
             $table->string('category')->nullable();
+            $table->string('remember_token', 100)->nullable();
+            $table->string('ip', 20)->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();
             $table->timestamp('deleted_at')->nullable();
-            $table->string('ip', 20)->nullable();
         });
     }
 

@@ -52,6 +52,10 @@ class User extends Authenticatable
         'deleted_at'
     ];
 
+    protected $guarded = [
+        'remember_token'
+    ];
+
     protected function name() : Attribute
     {
         return Attribute::make(
