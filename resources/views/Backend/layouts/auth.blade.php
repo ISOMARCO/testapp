@@ -106,6 +106,7 @@
                             icon: 'error'
                         });
                     }
+                    $("input, button").prop("disabled", false);
                 },
                complete: function()
                {
