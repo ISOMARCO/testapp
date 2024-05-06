@@ -8,6 +8,10 @@ class LoginService
     {
     }
 
+    /**
+     * @param array $credentials
+     * @return bool
+     */
     public function authenticate(array $credentials) : bool
     {
         if(Auth::attempt($credentials))

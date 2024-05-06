@@ -30,6 +30,9 @@ class LoginRequest extends FormRequest
         ];
     }
 
+    /**
+     * @return array
+     */
     public function messages() : array
     {
         return [
@@ -40,6 +43,9 @@ class LoginRequest extends FormRequest
         ];
     }
 
+    /**
+     * @return string[]
+     */
     public function attributes() : array
     {
         return [
@@ -48,6 +54,10 @@ class LoginRequest extends FormRequest
         ];
     }
 
+    /**
+     * @param Validator $validator
+     * @return mixed
+     */
     protected function failedValidation(Validator $validator)
     {
         $errors = $validator->errors()->getMessages();
