@@ -60,7 +60,7 @@ class CategoriesController extends Controller
             $htmlElement = view('Backend.pages.categories.sections.category-list-body', compact('data'))->render();
             return response()->json([
                 'message' => 'Kateqoriya uğurla əlavə edildi',
-                'html_element' => $htmlElement
+                'htmlElement' => $htmlElement
             ], 200);
         }
         return response()->json([
