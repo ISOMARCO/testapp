@@ -18,7 +18,7 @@ class CategoriesSeeder extends Seeder
         ]);
 
         Categories::create([
-            'name' => 'restoran'
+            'name' => 'Restoran'
         ]);
 
         Categories::create([
