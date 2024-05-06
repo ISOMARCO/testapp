@@ -25,7 +25,7 @@ class CategoriesRequest extends FormRequest
     {
         return [
             'name' => 'required|string|min:3|max:100|unique:categories,name',
-            'id' => 'required|integer'
+            'id' => 'integer'
         ];
     }
 
@@ -39,7 +39,6 @@ class CategoriesRequest extends FormRequest
             'name.string' => 'Düzgün ad daxil edin',
             'name.min' => 'Ad minimum 3 simvoldan ibarət olmalıdır',
             'name.max' => 'Ad maksimum 100 simvoldan ibarət olmalıdır',
-            'id.required' => 'Kateqoriya seçilməlidir',
             'name.unique' => 'Bu ad artıq mövcuddur'
         ];
     }
