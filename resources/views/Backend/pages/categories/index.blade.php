@@ -49,7 +49,7 @@
                                         <td>{{$category->name}}</td>
                                         <td>
                                             <a href="#" class="btn btn-light-primary btn-active-primary btn-sm w-150px" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
-                                                {{ __('frontapp::general.shared.actions') }}
+                                                Operations
                                                 <span class="svg-icon fs-5 m-0">
                                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
