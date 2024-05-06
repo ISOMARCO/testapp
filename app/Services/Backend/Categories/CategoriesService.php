@@ -19,6 +19,7 @@ class CategoriesService
 
     public function updateCategory(array $data) : array
     {
+        dd($data);
         try
         {
             return [true, Category::findOrFail($data['id'])->update([
