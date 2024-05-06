@@ -56,9 +56,10 @@ class CategoriesController extends Controller
         $create = $this->categoriesService->createCategory($data);
         if($create[0] === true)
         {
+            $htmlElement = view('Backend.pages.categories.sections.category-list-body', compact('data'))->render();
             return response()->json([
                 'message' => 'Kateqoriya uğurla əlavə edildi',
-                'data' => ['name' => $create[1]->name, 'id' => $create[1]->id]
+                'html_element' => $htmlElement
             ], 200);
         }
         return response()->json([
