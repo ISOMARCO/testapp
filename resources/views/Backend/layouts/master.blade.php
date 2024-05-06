@@ -4164,6 +4164,26 @@
     });
 </script>
 @yield('scripts')
+<script>
+    $(document).ready(function(){
+        $(document).on("click", "#logout_button", function(){
+            Swal.fire({
+                title: "Çıxmaq istədiyinizdən əminsiniz ?",
+                text: "",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: "Bəli",
+                cancelButtonText: "Xeyr"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "{{route('Backend.auth.logout')}}";
+                }
+            })
+        });
+    });
+</script>
 <!--end::Javascript-->
 </body>
 <!--end::Body-->
