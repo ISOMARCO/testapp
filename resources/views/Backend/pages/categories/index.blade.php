@@ -55,4 +55,5 @@
             </div>
         </div>
     </div>
+    @include('Backend.pages.categories.sections.add-modal')
 @endsection
