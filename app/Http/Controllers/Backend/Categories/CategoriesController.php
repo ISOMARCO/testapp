@@ -25,14 +25,14 @@ class CategoriesController extends Controller
     {
         $data = $categoriesRequest->validated();
         $create = $this->categoriesService->updateCategory($data);
-        if($create)
+        if($create[0] === true)
         {
             return response()->json([
                 'message' => 'Kateqoriya uğurla yeniləndi'
             ], 200);
         }
         return response()->json([
-            'type' => 'error',
+            'type' => 'update_error',
             'message' => 'Kateqoriya yenilənərkən xəta baş verdi'
         ], 500);
     }

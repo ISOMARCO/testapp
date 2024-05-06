@@ -51,7 +51,7 @@ class CategoriesRequest extends FormRequest
         ];
     }
 
-    protected function failedValidation(Validator $validator)
+    protected function failedValidation(Validator $validator) : void
     {
         $errors = $validator->errors()->getMessages();
 
