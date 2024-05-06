@@ -37,9 +37,9 @@
                                class="table table-striped table-row-bordered align-middle fs-6 gy-5">
                             <thead>
                             <tr class="text-start text-white bg-primary fw-bold fs-7 text-uppercase gs-0">
-                                <th class="px-3 w-40px">Id</th>
-                                <th class="min-w-125px">Name</th>
-                                <th class="text-end pe-15 ">Actions</th>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Actions</th>
                             </tr>
                             </thead>
                             <tbody class="text-gray-600 fw-semibold">
