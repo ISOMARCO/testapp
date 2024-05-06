@@ -33,7 +33,7 @@
                                     <!--end::Label-->
                                     <!--begin::Input-->
                                     <input type="text" name="name" class="form-control  mb-3 mb-lg-0" id="name"
-                                           placeholder="Kateqoriya adı" value="{{$category->name}}"/>
+                                           placeholder="Kateqoriya adı" value=""/>
                                     <!--end::Input-->
                                 </div>
 
@@ -52,7 +52,7 @@
                         </div>
                         <!--end::Actions-->
                     </div>
-                    <input type="hidden" value="{{$category->id}}" id="id">
+                    <input type="hidden" value="" id="id">
                 </form>
                 <!--end:Form-->
             </div>
