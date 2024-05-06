@@ -21,7 +21,7 @@
             <!--begin::Modal body-->
             <div class="modal-body scroll-y px-10 px-lg-15 pt-5 pb-15">
                 <!--begin:Form-->
-                <form id="kt_modal_new_target_form" class="edit_form">
+                <form method="POST" id="kt_modal_new_target_form" class="edit_form">
                     <div class="row">
                         <div class="col-12 col-lg-12">
                             <!--begin::Input group-->
