@@ -45,6 +45,20 @@
                             </tr>
                             </thead>
                             <tbody class="text-gray-600 fw-semibold">
+                                @foreach($categories as $category)
+                                    <tr>
+                                        <td>{{$category->id}}</td>
+                                        <td>{{$category->name}}</td>
+                                        <td class="text-end">
+                                            <a href="#" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"
+                                               data-bs-toggle="modal" data-bs-target="#kt_modal_new_target">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <a href="#" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
                             </tbody>
                         </table>
                         <!--end::Datatable-->
