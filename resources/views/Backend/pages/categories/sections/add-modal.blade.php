@@ -1,5 +1,5 @@
 <!--begin::Modal - New Target-->
-<div class="modal fade" id="kt_modal_new_target" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="new_category" tabindex="-1" aria-hidden="true">
     <!--begin::Modal dialog-->
     <div class="modal-dialog modal-dialog-centered min-w-1000px">
         <!--begin::Modal content-->

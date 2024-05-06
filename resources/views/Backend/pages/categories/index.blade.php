@@ -17,7 +17,7 @@
                             </div>
                             <div class="d-flex justify-content-end" data-kt-docs-table-toolbar="base">
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                        data-bs-target="#kt_modal_new_target">
+                                        data-bs-target="#new_category">
                                     <i class="ki-duotone ki-plus fs-2"></i>
                                     New Category
                                 </button>
@@ -33,8 +33,8 @@
                                 </button>
                             </div>
                         </div>
-                        <table style="border-radius: 10px; overflow: auto" id="kt_datatable_example_1"
-                               class="table table-striped table-row-bordered">
+                        <table style="overflow: auto" id="kt_datatable_example_1"
+                               class="table table-striped table-row-bordered align-middle fs-6 gy-5">
                             <thead>
                             <tr class="text-start text-white bg-primary fw-bold fs-7 text-uppercase gs-0">
                                 <th class="px-3 w-40px">Id
