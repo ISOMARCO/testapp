@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('Backend.layouts.master')
 @section('content')
     <div class="d-flex flex-column flex-column-fluid">
         <!--begin::Content-->
