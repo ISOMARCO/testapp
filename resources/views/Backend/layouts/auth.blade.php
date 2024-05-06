@@ -66,6 +66,7 @@
                 beforeSend: function()
                 {
                     $("#kt_sign_in_submit i").show();
+                    $("input, button").prop("disabled", true);
                 },
                 success: function(e)
                 {
@@ -109,6 +110,7 @@
                complete: function()
                {
                      $("#kt_sign_in_submit i").hide();
+                        $("input, button").prop("disabled", false);
                }
             });
         });
