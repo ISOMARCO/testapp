@@ -41,7 +41,7 @@ class CategoriesController extends Controller
         {
             return response()->json([
                 'message' => 'Kateqoriya uğurla yeniləndi',
-                'data' => ['name' => $data['name']]
+                'data' => ['name' => $data['name'], 'id' => $data['id']]
             ], 200);
         }
         return response()->json([
