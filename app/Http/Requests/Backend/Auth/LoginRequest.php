@@ -58,7 +58,7 @@ class LoginRequest extends FormRequest
      * @param Validator $validator
      * @return mixed
      */
-    protected function failedValidation(Validator $validator)
+    protected function failedValidation(Validator $validator) : void
     {
         $errors = $validator->errors()->getMessages();
 
