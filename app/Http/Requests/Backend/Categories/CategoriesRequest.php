@@ -38,7 +38,8 @@ class CategoriesRequest extends FormRequest
             'name.required' => 'Ad daxil edilməlidir',
             'name.string' => 'Düzgün ad daxil edin',
             'name.min' => 'Ad minimum 3 simvoldan ibarət olmalıdır',
-            'name.max' => 'Ad maksimum 100 simvoldan ibarət olmalıdır'
+            'name.max' => 'Ad maksimum 100 simvoldan ibarət olmalıdır',
+            'id.required' => 'Kateqoriya seçilməlidir'
         ];
     }
 
