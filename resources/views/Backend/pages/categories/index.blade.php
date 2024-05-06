@@ -44,7 +44,7 @@
                                 <th class="text-end pe-15 ">Actions</th>
                             </tr>
                             </thead>
-                            <tbody class="text-gray-600 fw-semibold">
+                            <tbody>
                                 @foreach($categories as $category)
                                     <tr>
                                         <td>{{$category->id}}</td>
