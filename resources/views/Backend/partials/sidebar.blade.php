@@ -56,7 +56,7 @@
                     <div class="menu-item">
                         <!--begin:Menu link-->
                         <a class="menu-link active" href="javascript:void(0)">
-                            <i class="fas fa-sign-out-alt"></i>
+                            <i class="fas fa-sign-out-alt nav-icon"></i>
                             <span class="menu-title">Çıxış</span>
                         </a>
                         <!--end:Menu link-->
