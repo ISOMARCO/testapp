@@ -27,7 +27,7 @@
                         <div class="col-12 col-lg-12">
                             <!--begin::Input group-->
                             <div class="row g-9 mb-8">
-                                <div class="fv-row mb-7 col-6">
+                                <div class="fv-row mb-7 col-12">
                                     <!--begin::Label-->
                                     <label
                                         class="required fw-semibold fs-6 mb-2">Firstname</label>
@@ -36,74 +36,6 @@
                                     <input type="text" name="first_name" class="form-control  mb-3 mb-lg-0"
                                            placeholder="Firstname" />
                                     <!--end::Input-->
-                                </div>
-                                <!--begin::Input group-->
-                                <div class="fv-row mb-7 col-6">
-                                    <!--begin::Label-->
-                                    <label
-                                        class="required fw-semibold fs-6 mb-2">Lastname</label>
-                                    <!--end::Label-->
-                                    <!--begin::Input-->
-                                    <input type="text" name="last_name" class="form-control  mb-3 mb-lg-0"
-                                           placeholder="Lastname" />
-                                    <!--end::Input-->
-                                </div>
-                                <!--end::Input-->
-                                <div class="fv-row mb-7 col-4">
-                                    <!--begin::Label-->
-                                    <label
-                                        class="required fw-semibold fs-6 mb-2">Father name</label>
-                                    <!--end::Label-->
-                                    <!--begin::Input-->
-                                    <input type="text" name="father_name" class="form-control  mb-3 mb-lg-0"
-                                           placeholder="Father name" />
-                                    <!--end::Input-->
-                                </div>
-                                <div class="fv-row mb-7 col-4">
-                                    <!--begin::Label-->
-                                    <label
-                                        class="fw-semibold fs-6 mb-2 required">Phone</label>
-                                    <!--end::Label-->
-                                    <!--begin::Input-->
-                                    <input type="text" name="phone" class="form-control  mb-3 mb-lg-0"
-                                           placeholder="Phone" />
-                                    <!--end::Input-->
-                                </div>
-                                <div class="fv-row mb-7 col-4">
-                                    <label
-                                        class="fw-semibold fs-6 mb-2 required">Working department</label>
-                                    <select id="department-select" class="form-select form-select-solid"
-                                            name="department_id">
-                                        <option value="0">
-                                            None</option>
-                                    </select>
-                                </div>
-                                <div class="fv-row mb-7">
-                                    <!--begin::Label-->
-                                    <label
-                                        class="required fw-semibold fs-6 mb-2">Email</label>
-                                    <!--end::Label-->
-                                    <!--begin::Input-->
-                                    <input type="email" name="email" class="form-control  mb-3 mb-lg-0"
-                                           placeholder="Email" />
-                                    <!--end::Input-->
-                                </div>
-                                <div class="fv-row mb-7">
-                                    <!--begin::Label-->
-                                    <label
-                                        class="required fw-semibold fs-6 mb-2">Password</label>
-                                    <!--end::Label-->
-                                    <!--begin::Input-->
-                                    <input type="password" name="password" class="form-control  mb-3 mb-lg-0"
-                                           placeholder="Password" />
-                                    <!--end::Input-->
-                                </div>
-
-                                <!--end::Input group-->
-                                <div class="mb-5 role-section">
-                                    <!--begin::Label-->
-
-
                                 </div>
 
                                 <!--end::Input group-->
