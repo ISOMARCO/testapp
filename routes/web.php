@@ -13,3 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/admin', [App\Http\Controllers\Backend\Home\HomeController::class, 'index'])->name('Backend.home');
+Route::redirect('/admin/home', '/admin');
