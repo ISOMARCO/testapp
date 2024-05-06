@@ -1,5 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Backend\Categories\CategoriesController;
 
-Route::get('/categories', [App\Http\Controllers\Backend\Categories\CategoriesController::class, 'index'])->name('index');
+Route::get('/categories', [CategoriesController::class, 'index'])->name('index');
+Route::post('/categories/update', [CategoriesController::class, 'updateRequest'])->name('update');
