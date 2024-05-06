@@ -39,10 +39,9 @@
                             <tr class="text-start text-white bg-primary fw-bold fs-7 text-uppercase gs-0">
                                 <th class="px-3 w-40px">Id
                                 </th>
-                                <th class="min-w-125px">{{ __('frontapp::general.pages.users.list.user') }}</th>
-                                <th>Name</th>
+                                <th class="min-w-125px">Name</th>
                                 <th>Parent</th>
-                                <th class="text-end pe-15 ">{{ __('frontapp::general.shared.actions') }}</th>
+                                <th class="text-end pe-15 ">Actions</th>
                             </tr>
                             </thead>
                             <tbody class="text-gray-600 fw-semibold">
