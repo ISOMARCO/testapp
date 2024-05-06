@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend\Categories;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\Categories\CategoriesRequest;
-use App\Models\Categories;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Services\Backend\Categories\CategoriesService;
 use Illuminate\Http\JsonResponse;
@@ -34,7 +34,7 @@ class CategoriesController extends Controller
      * @param CategoriesRequest $categoriesRequest
      * @return JsonResponse
      */
-    public function updateRequest(CategoriesRequest $categoriesRequest, Categories $categories) : JsonResponse
+    public function updateRequest(CategoriesRequest $categoriesRequest, Category $categories) : JsonResponse
     {
         $data = $categoriesRequest->validated();
         return response()->json([$data, $categories]);

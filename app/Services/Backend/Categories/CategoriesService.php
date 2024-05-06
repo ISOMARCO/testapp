@@ -1,7 +1,7 @@
 <?php
 namespace App\Services\Backend\Categories;
 
-use App\Models\Categories;
+use App\Models\Category;
 use Illuminate\Database\QueryException;
 class CategoriesService
 {
@@ -32,7 +32,7 @@ class CategoriesService
     {
         try
         {
-            return [true, Categories::create($data)];
+            return [true, Category::create($data)];
         } catch(QueryException $e)
         {
             return [false, $e->getMessage()];
