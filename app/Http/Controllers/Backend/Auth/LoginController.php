@@ -40,7 +40,7 @@ class LoginController extends Controller
             return response()->json([
                 'type' => 'auth_error',
                 'message' => 'Email və ya şifrə doğru deyil',
-                'redirect' => route('')
+                'redirect' => route('Backend.home')
             ], 500);
         }
         return response()->json([
