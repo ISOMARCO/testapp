@@ -14,14 +14,14 @@ class CategoriesService
      */
     public function getCategories() : object
     {
-        return Categories::all();
+        return Category::all();
     }
 
     public function updateCategory(array $data) : array
     {
         try
         {
-            return [true, Categories::where('id', $data['id'])->update($data)];
+            return [true, Category::where('id', $data['id'])->update($data)];
         } catch(QueryException $e)
         {
             return [false, $e->getMessage()];
