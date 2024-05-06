@@ -50,11 +50,11 @@ License: For each use you must have a valid license purchased only from above li
 <div class="d-flex flex-column flex-root app-root" id="kt_app_root">
     <!--begin::Page-->
     <div class="app-page flex-column flex-column-fluid" id="kt_app_page">
-        @include('partials.header')
+        @include('Backend.partials.header')
         <!--begin::Wrapper-->
         <div class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
             <!--begin::Sidebar-->
-            @include('partials.sidebar')
+            @include('Backend.partials.sidebar')
             <!--end::Sidebar-->
             <!--begin::Main-->
             <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
@@ -62,7 +62,7 @@ License: For each use you must have a valid license purchased only from above li
                 @yield('content')
                 <!--end::Content wrapper-->
                 <!--begin::Footer-->
-                @include('partials.footer')
+                @include('Backend.partials.footer')
                 <!--end::Footer-->
             </div>
             <!--end:::Main-->
