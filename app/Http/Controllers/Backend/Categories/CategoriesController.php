@@ -18,4 +18,9 @@ class CategoriesController extends Controller
         $categories = $this->categoriesService->getCategories();
         return view('Backend.pages.categories.index', compact('categories'));
     }
+
+    public function updateRequest()
+    {
+
+    }
 }

@@ -42,7 +42,7 @@
                         </div>
                         <!--begin::Actions-->
                         <div class="text-center mt-5">
-                            <button type="button" id="kt_modal_new_target_submit" class="btn btn-primary">
+                            <button type="button" id="edit_modal_btn" class="btn btn-primary">
                                 <span class="indicator-label">Yadda saxla</span>
                                 <span class="indicator-progress">Zəhmət olmasa gözləyin...
                                     <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
