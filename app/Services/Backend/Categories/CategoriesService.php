@@ -15,4 +15,9 @@ class CategoriesService
     {
         return Categories::all();
     }
+
+    public function createCategory(array $data) : object
+    {
+        return Categories::create($data);
+    }
 }
