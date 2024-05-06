@@ -301,10 +301,8 @@
                     </div>
                     <div class="menu-item">
                         <!--begin:Menu link-->
-                        <a class="menu-link active" href="index.html">
-														<span class="menu-bullet">
-															<span class="bullet bullet-dot"></span>
-														</span>
+                        <a class="menu-link active" href="javascript:void(0)">
+                            <i class="fas fa-sign-out-alt"></i>
                             <span class="menu-title">Default</span>
                         </a>
                         <!--end:Menu link-->
