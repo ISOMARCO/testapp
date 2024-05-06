@@ -50,7 +50,7 @@
                         </div>
                         <!--end::Actions-->
                     </div>
-                    <input type="hidden" value="" id="id">
+                    <input name="id" type="hidden" value="" id="id">
                     @csrf
                 </form>
                 <!--end:Form-->
