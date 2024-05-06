@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 use App\Services\Backend\Categories\CategoriesService;
 class CategoriesController extends Controller
 {
+    protected $categoriesService;
     public function __construct(CategoriesService $categoriesService)
     {
+        $this->categoriesService = $categoriesService;
     }
 
     public function index()
