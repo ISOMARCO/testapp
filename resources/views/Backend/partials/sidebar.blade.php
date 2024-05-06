@@ -55,7 +55,7 @@
                     </div>
                     <div class="menu-item">
                         <!--begin:Menu link-->
-                        <a class="menu-link active" href="javascript:void(0)">
+                        <a class="menu-link active" href="{{route('Backend.categories.index')}}">
                             <i class="fas fa-ellipsis-v menu-bullet"></i>
                             <span class="menu-title">Kateqoriyalar</span>
                         </a>
