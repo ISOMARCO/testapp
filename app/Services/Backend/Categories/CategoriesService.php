@@ -21,9 +21,9 @@ class CategoriesService
     {
         try
         {
-            Category::findOrFail($data['id'])->update([
-                'name' => $data['name']
-            ]);
+            $id = $data['id'];
+            unset($data['id']);
+            Category::findOrFail($id)->update($data);
             return [true];
         }catch(QueryException $e)
         {
