@@ -21,9 +21,7 @@ class Categories extends Model
     ];
 
     protected $casts = [
-        'created_at' => 'timestamp',
-        'updated_at' => 'timestamp',
-        'deleted_at' => 'timestamp'
+        'created_at' => 'timestamp'
     ];
 
     protected function name() : Attribute
