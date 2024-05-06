@@ -7,7 +7,8 @@ use App\Services\Backend\Auth\LoginService;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\JsonResponse;
-
+use Illuminate\Support\Facades\Session;
+use Illuminate\Http\RedirectResponse;
 class LoginController extends Controller
 {
     protected mixed $loginService;
@@ -46,5 +47,17 @@ class LoginController extends Controller
             'message' => 'Giriş uğurla başa çatdı. Ana səhifəyə yönləndirilirsiniz...',
             'redirect' => route('Backend.home')
         ], 200);
+    }
+
+    /**
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function logout(Request $request) : RedirectResponse
+    {
+        auth()->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('Backend.login');
     }
 }
