@@ -69,7 +69,16 @@
                 },
                 success: function(e)
                 {
-                    alert(e);
+                    Swal.fire({
+                        title: '',
+                        text: e.message,
+                        icon: 'success'
+                    }).then(function(){
+                        window.location.href = e.redirect;
+                    });
+                    setTimeout(function(){
+                        window.location.href = e.redirect;
+                    }, 5000);
                 },
                 error: function(x)
                 {
