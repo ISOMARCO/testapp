@@ -63,7 +63,7 @@
                     </div>
                     <div class="menu-item">
                         <!--begin:Menu link-->
-                        <a class="menu-link active" href="javascript:void(0)" id="logout_button">
+                        <a class="menu-link active" href="#" id="logout_button">
                             <i class="fas fa-sign-out-alt menu-bullet"></i>
                             <span class="menu-title">Çıxış</span>
                         </a>
