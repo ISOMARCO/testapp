@@ -59,6 +59,7 @@
                                             </a>
                                         </td>
                                     </tr>
+                                @endforeach
                             </tbody>
                         </table>
                         <!--end::Datatable-->
