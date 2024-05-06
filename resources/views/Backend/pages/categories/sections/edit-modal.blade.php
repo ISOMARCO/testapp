@@ -32,8 +32,8 @@
                                         class="required fw-semibold fs-6 mb-2">Kateqoriya adı</label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="text" name="name" class="form-control  mb-3 mb-lg-0"
-                                           placeholder="Kateqoriya adı" />
+                                    <input type="text" name="name" class="form-control  mb-3 mb-lg-0" id="name"
+                                           placeholder="Kateqoriya adı" value="{{$category->name}}"/>
                                     <!--end::Input-->
                                 </div>
 
@@ -52,6 +52,7 @@
                         </div>
                         <!--end::Actions-->
                     </div>
+                    <input type="hidden" value="{{$category->id}}" id="id">
                 </form>
                 <!--end:Form-->
             </div>
