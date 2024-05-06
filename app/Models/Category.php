@@ -26,6 +26,7 @@ class Category extends Model
 
     protected function name() : Attribute
     {
+        return response()->json(['name' => 'name']);
         return Attribute::make(
             get: fn(string $value) => ucfirst($value),
             set: fn(string $value) => ucfirst($value)
