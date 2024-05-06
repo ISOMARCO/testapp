@@ -69,7 +69,7 @@
                 },
                 success: function(e)
                 {
-                    console.log(e);
+                    alert(e);
                 },
                 error: function(x)
                 {
