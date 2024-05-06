@@ -36,6 +36,7 @@ class CategoriesController extends Controller
     public function updateRequest(CategoriesRequest $categoriesRequest) : JsonResponse
     {
         $data = $categoriesRequest->validated();
+        return response()->json($data);
         $update = $this->categoriesService->updateCategory($data);
         if($update[0] === true)
         {
