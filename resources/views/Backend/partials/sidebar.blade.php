@@ -48,7 +48,7 @@
                     <div class="menu-item">
                         <!--begin:Menu link-->
                         <a class="menu-link active" href="{{route('Backend.home')}}">
-                            <i class="fas fa-home"></i>
+                            <i class="fas fa-home menu-bullet"></i>
                             <span class="menu-title">Ana Səhifə</span>
                         </a>
                         <!--end:Menu link-->
