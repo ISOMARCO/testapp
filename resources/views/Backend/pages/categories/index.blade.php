@@ -33,7 +33,7 @@
                                 </button>
                             </div>
                         </div>
-                        <table style="border-radius: 10px; overflow: auto" id="kt_datatable_example_1"
+                        <table style="border-radius: 10px; overflow: auto; width: 100%" id="kt_datatable_example_1"
                                class="table table-striped table-row-bordered align-middle fs-6 gy-5">
                             <thead>
                             <tr class="text-start text-white bg-primary fw-bold fs-7 text-uppercase gs-0">
