@@ -55,6 +55,14 @@
                     </div>
                     <div class="menu-item">
                         <!--begin:Menu link-->
+                        <a class="menu-link active" href="javascript:void(0)">
+                            <i class="far fa-list-alt menu-bullet"></i>
+                            <span class="menu-title">Kateqoriyalar</span>
+                        </a>
+                        <!--end:Menu link-->
+                    </div>
+                    <div class="menu-item">
+                        <!--begin:Menu link-->
                         <a class="menu-link active" href="javascript:void(0)" id="logout_button">
                             <i class="fas fa-sign-out-alt menu-bullet"></i>
                             <span class="menu-title">Çıxış</span>
