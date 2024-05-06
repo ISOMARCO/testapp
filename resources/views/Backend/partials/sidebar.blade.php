@@ -56,7 +56,7 @@
                     <div class="menu-item">
                         <!--begin:Menu link-->
                         <a class="menu-link active" href="javascript:void(0)">
-                            <i class="far fa-list-alt menu-bullet"></i>
+                            <i class="fas fa-ellipsis-v menu-bullet"></i>
                             <span class="menu-title">Kateqoriyalar</span>
                         </a>
                         <!--end:Menu link-->
