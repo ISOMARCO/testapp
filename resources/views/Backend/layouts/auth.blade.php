@@ -67,6 +67,7 @@
                 {
                     $("#kt_sign_in_submit i").show();
                     $("input, button").prop("disabled", true);
+                    $("#email-error, #password-error").html("");
                 },
                 success: function(e)
                 {
