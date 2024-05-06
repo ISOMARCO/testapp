@@ -21,10 +21,10 @@ class CategoriesService
     {
         try
         {
-            return [true, Category::where('id', $data['id'])->update([
+            return [true, Category::findOrFail($data['id'])->update([
                 'name' => $data['name']
             ])];
-        } catch(QueryException $e)
+        }catch(QueryException $e)
         {
             return [false, $e->getMessage()];
         }
