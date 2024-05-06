@@ -21,7 +21,9 @@ class CategoriesService
     {
         try
         {
-            return [true, Category::where('id', $data['id'])->update($data)];
+            return [true, Category::where('id', $data['id'])->update([
+                'name' => $data['name']
+            ])];
         } catch(QueryException $e)
         {
             return [false, $e->getMessage()];
