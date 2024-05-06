@@ -47,6 +47,14 @@
                      data-kt-menu="true" data-kt-menu-expand="false">
                     <div class="menu-item">
                         <!--begin:Menu link-->
+                        <a class="menu-link active" href="{{route('Backend.home')}}">
+                            <i class="fas fa-home"></i>
+                            <span class="menu-title">Ana Səhifə</span>
+                        </a>
+                        <!--end:Menu link-->
+                    </div>
+                    <div class="menu-item">
+                        <!--begin:Menu link-->
                         <a class="menu-link active" href="javascript:void(0)">
                             <i class="fas fa-sign-out-alt"></i>
                             <span class="menu-title">Çıxış</span>
