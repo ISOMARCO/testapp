@@ -7,7 +7,7 @@
             <!--begin::Modal header-->
             <div class="modal-header pb-md-5 border-0 justify-content-end bg-primary">
                 <!--begin::Title-->
-                <h2 class="w-100 text-start modal-title text-white">Kateqoriya əlavə et</h2>
+                <h2 class="w-100 text-start modal-title text-white">Kateqoriya dəyiş</h2>
                 <!-- Title added here -->
                 <!--end::Title-->
 
