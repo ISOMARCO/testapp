@@ -2,6 +2,7 @@
 namespace App\Services\Backend\Categories;
 
 use App\Models\Categories;
+use Illuminate\Database\QueryException;
 class CategoriesService
 {
     public function __construct()
@@ -16,8 +17,14 @@ class CategoriesService
         return Categories::all();
     }
 
-    public function createCategory(array $data) : object
+    public function createCategory(array $data) : array
     {
-        return Categories::create($data);
+        try
+        {
+            return [true, Categories::create($data)];
+        } catch(QueryException $e)
+        {
+            return [false, $e->getMessage()];
+        }
     }
 }
