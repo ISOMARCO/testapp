@@ -24,7 +24,7 @@ class Category extends Model
         'created_at' => 'timestamp'
     ];
 
-    protected function name() : Attribute
+    protected function name() //: Attribute
     {
         return response()->json(['name' => 'name']);
         return Attribute::make(
