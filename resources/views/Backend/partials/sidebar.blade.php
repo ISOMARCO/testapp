@@ -55,7 +55,7 @@
                     </div>
                     <div class="menu-item">
                         <!--begin:Menu link-->
-                        <a class="menu-link active" href="{{route('Backend.logout')}}">
+                        <a class="menu-link active" href="{{route('Backend.auth.logout')}}">
                             <i class="fas fa-sign-out-alt menu-bullet"></i>
                             <span class="menu-title">Çıxış</span>
                         </a>

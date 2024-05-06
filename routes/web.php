@@ -13,4 +13,3 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/admin', [App\Http\Controllers\Backend\Home\HomeController::class, 'index'])->name('Backend.home');
-Route::get('/admin/logout', [App\Http\Controllers\Backend\Auth\LoginController::class, 'logout'])->name('Backend.logout');
