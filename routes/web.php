@@ -12,5 +12,5 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/admin', [App\Http\Controllers\Backend\Home\HomeController::class, 'index'])->name('Backend.home');
+Route::get('/admin', [App\Http\Controllers\Backend\Home\HomeController::class, 'index'])->name('Backend.home')->middleware('auth');
 Route::redirect('/admin/home', '/admin');
