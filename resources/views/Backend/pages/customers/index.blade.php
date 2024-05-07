@@ -39,13 +39,16 @@
                             <th>Ad soyad</th>
                             <th>Email</th>
                             <th>Ölkə</th>
+                            <th>Əməliyyatlar</th>
                         </tr>
                         </thead>
                         <tbody class="text-gray-600 fw-semibold">
-                        @foreach($categories as $category)
-                            <tr id="category{{$category->id}}">
-                                <td>{{$category->id}}</td>
-                                <td>{{$category->name}}</td>
+                        @foreach($customers as $customer)
+                            <tr id="category{{$customer->id}}">
+                                <td>{{$customer->id}}</td>
+                                <td>{{$customer->name}} {{$customer->surname}}</td>
+                                <td>{{$customer->email}}</td>
+                                <td>{{$customer->country}}</td>
                                 <td>
                                     <a href="#" class="btn btn-light-primary btn-active-primary btn-sm w-150px" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
                                         Əməliyyatlar
@@ -60,7 +63,7 @@
                                     </a>
                                     <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-150px py-4" data-kt-menu="true">
                                         <div class="menu-item px-3">
-                                            <a data-bs-toggle="modal" data-bs-target="#edit_category" data-id="{{$category->id}}" data-kt-docs-table-filter="edit_row" class="menu-link px-3" id="edit_row">
+                                            <a data-bs-toggle="modal" data-bs-target="#edit_category" data-id="{{$customer->id}}" data-kt-docs-table-filter="edit_row" class="menu-link px-3" id="edit_row">
                                                 <i class="fas fa-edit menu-bullet"></i> Dəyiş
                                             </a>
                                         </div>
