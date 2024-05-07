@@ -22,7 +22,6 @@ RUN docker-php-ext-install \
     pdo_pgsql \
     pgsql \
     mbstring \
-    tokenizer \
     xml \
     ctype \
     json \
