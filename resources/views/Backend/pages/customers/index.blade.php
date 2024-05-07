@@ -63,8 +63,8 @@
                                     </a>
                                     <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-150px py-4" data-kt-menu="true">
                                         <div class="menu-item px-3">
-                                            <a class="menu-link px-3" data-bs-target="#see_customer" data-kt-docs-table-filter="see_row">
-                                                <i class="fas fa-eye menu-bullet"></i> Ətraflı bax
+                                            <a data-bs-toggle="modal" data-bs-target="#see_customer" data-id="{{$customer->id}}" data-kt-docs-table-filter="edit_row" class="menu-link px-3" id="edit_row">
+                                                <i class="fas fa-edit menu-bullet"></i> Ətraflı bax
                                             </a>
                                         </div>
                                         <div class="menu-item px-3">
