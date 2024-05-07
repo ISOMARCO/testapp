@@ -16,7 +16,7 @@
                         </div>
                         <div class="d-flex justify-content-end" data-kt-docs-table-toolbar="base">
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#new_category">
+                                    data-bs-target="#new_customer">
                                 <i class="ki-duotone ki-plus fs-2"></i>
                                 Yeni Müştəri
                             </button>
