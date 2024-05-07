@@ -84,7 +84,9 @@
                                     <!--end::Label-->
                                     <!--begin::Input-->
                                     <select name="category_id" id="category_id" class="form-control mb-3 mb-lg-0">
-                                        <option>Kateqoriya1</option>
+                                        @foreach($categories as $category)
+                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                        @endforeach
                                     </select>
                                     <ul class="mt-3 category-error"></ul>
                                     <!--end::Input-->
