@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\Customers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\Backend\Customers\CustomersService;
+use App\Services\Backend\Categories\CategoriesService;
 
 class CustomersController extends Controller
 {
@@ -18,6 +19,7 @@ class CustomersController extends Controller
     public function index()
     {
         $customers = $this->customersService->getCustomers();
-        return view('Backend.pages.customers.index', compact('customers'));
+        $categories = (new CategoriesService())->getCategories();
+        return view('Backend.pages.customers.index', compact('customers', 'categories'));
     }
 }
