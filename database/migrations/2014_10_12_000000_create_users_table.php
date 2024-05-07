@@ -24,6 +24,8 @@ return new class extends Migration
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();
             $table->timestamp('deleted_at')->nullable();
+
+            $table->foreign('category')->references('id')->on('categories')->onDelete('set null');
         });
     }
 
