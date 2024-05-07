@@ -63,7 +63,7 @@
                                     </a>
                                     <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-150px py-4" data-kt-menu="true">
                                         <div class="menu-item px-3">
-                                            <a class="menu-link px-3" data-kt-docs-table-filter="see_row" data-bs-target="#see_customer" id="see_row">
+                                            <a class="menu-link px-3" data-bs-target="#see_customer" id="see_row">
                                                 <i class="fas fa-eye menu-bullet"></i> Ətraflı bax
                                             </a>
                                         </div>
@@ -83,8 +83,6 @@
                         @endforeach
                         </tbody>
                     </table>
-                    <!--end::Datatable-->
-                    <!--end::Table-->
                 </div>
             </div>
         </div>
