@@ -21,6 +21,7 @@ class CustomersService
     {
         try
         {
+            unset($data['password_confirmation']);
             return [true, User::create($data)];
         } catch(QueryException $e)
         {
