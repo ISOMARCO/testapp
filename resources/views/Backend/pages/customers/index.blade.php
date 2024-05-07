@@ -121,12 +121,8 @@
                             $.each(Object.entries(errorResponse.message), function (index, value) {
                                 //$("." + value[0] + "-error").html("<li>" + value[1] + "</li>");
                                 $.each(value[1], function(i, message) {
-                                    if(message != '')
-                                    {
-                                        errorMsg += "<li>" + message + "</li>";
-                                    }
+                                    $("." + value[0] + "-error").append("<li>" + message + "</li>");
                                 });
-                                $("." + value[0] + "-error").html("<li>" + errorMsg + "</li>");
                             });
 
                         }
