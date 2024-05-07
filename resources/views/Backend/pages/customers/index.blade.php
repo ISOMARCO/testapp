@@ -91,3 +91,40 @@
     </div>
     @include('Backend.pages.customers.sections.add-modal')
 @endsection
+@section('scripts')
+    <script>
+        $(document).ready(function() {
+            $(document).on("click", "#create_modal_btn", function(){
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('Backend.customers.create')}}",
+                    data: $(".create_form").serialize(),
+                    dataType: "json",
+                    beforeSend: function()
+                    {
+                        $(".create_form input, .create_form button").prop("disabled", true);
+                    },
+                    success: function(e)
+                    {
+                        console.log(e);
+                    },
+                    error: function(x)
+                    {
+                        var errorResponse = x.responseJSON || x.responseText;
+                        console.error(errorResponse);
+                        if(errorResponse.type === 'validation_error')
+                        {
+                            $.each(Object.entries(errorResponse.message), function (index, value) {
+                                $("#" + value[0] + "-error").html("<li>" + value[1] + "</li>");
+                            });
+                        }
+                    },
+                    complete: function()
+                    {
+                        $(".create_form input, .create_form button").prop("disabled", false);
+                    }
+                });
+            });
+        });
+    </script>
+@endsection
