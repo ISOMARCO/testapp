@@ -107,7 +107,7 @@
                     },
                     success: function(e)
                     {
-                        console.log(e);
+                        $(".modal").modal("hide");
                     },
                     error: function(x)
                     {
