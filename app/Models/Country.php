@@ -20,10 +20,6 @@ class Country extends Model
         'deleted_at'
     ];
 
-    protected $guarded = [
-        'id'
-    ];
-
     protected $casts = [
         'created_at' => 'timestamp',
         'updated_at' => 'timestamp',
