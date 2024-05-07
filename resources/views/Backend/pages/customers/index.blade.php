@@ -89,4 +89,5 @@
             </div>
         </div>
     </div>
+    @include('Backend.pages.customers.sections.add-modal')
 @endsection
