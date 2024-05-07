@@ -1,7 +1,7 @@
 <?php
 namespace App\Services\Backend\Customers;
 
-use App\Models\Customer;
+use App\Models\User;
 class CustomersService
 {
     public function __construct()
@@ -13,6 +13,6 @@ class CustomersService
      */
     public function getCustomers() : object
     {
-        return Customer::all();
+        return User::all();
     }
 }
