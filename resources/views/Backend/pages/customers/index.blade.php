@@ -108,6 +108,7 @@
                     success: function(e)
                     {
                         $("tbody").prepend(e.htmlElement);
+                        $('#new_customer').modal('hide');
                         console.log(e.message);
                     },
                     error: function(x)
@@ -123,7 +124,6 @@
                     complete: function()
                     {
                         $(".create_form input, .create_form button").prop("disabled", false);
-                        $('#new_customer').modal('hide');
                     }
                 });
             });
