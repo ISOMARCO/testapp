@@ -27,9 +27,10 @@ class CustomersRequest extends FormRequest
             'name' => 'string|required',
             'surname' => 'string|required',
             'email' => 'required|email',
-            'country' => 'string|required',
-            'category' => 'string|required',
-            'password' => 'string|required'
+            'country' => 'required|string',
+            'category' => 'required|string',
+            'password' => 'required|string',
+            'password_confirmation' => 'required|string|same:password'
         ];
     }
 

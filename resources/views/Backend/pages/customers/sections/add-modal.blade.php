@@ -146,11 +146,11 @@
                             <div class="row g-9 mb-8">
                                 <div class="fv-row mb-7 col-12">
                                     <!--begin::Label-->
-                                    <label class="required fw-semibold fs-6 mb-2" for="password_repeat">Şifrə təkrarı</label>
+                                    <label class="required fw-semibold fs-6 mb-2" for="password_confirmation">Şifrə təkrarı</label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="password" name="password_repeat" class="form-control  mb-3 mb-lg-0"
-                                           placeholder="Şifrə təkrarı" id="password_repeat"/>
+                                    <input type="password" name="password_confirmation" class="form-control  mb-3 mb-lg-0"
+                                           placeholder="Şifrə təkrarı" id="password_confirmation"/>
                                     <ul class="mt-3 password-repeat-error"></ul>
                                     <!--end::Input-->
                                 </div>
