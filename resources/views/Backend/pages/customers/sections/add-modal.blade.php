@@ -51,7 +51,7 @@
                                     <!--begin::Input-->
                                     <input type="text" name="surname" class="form-control  mb-3 mb-lg-0"
                                            placeholder="Soyadı" id="surname"/>
-                                    <ul class="mt-3 surname-error"></ul>
+                                    <ul class="mt-3 surname-error text-danger"></ul>
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
@@ -69,7 +69,7 @@
                                     <select name="country" id="country" class="form-control mb-3 mb-lg-0">
                                         <option value="Azerbaijan">Azərbaycan</option>
                                     </select>
-                                    <ul class="mt-3 country-error"></ul>
+                                    <ul class="mt-3 country-error text-danger"></ul>
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
@@ -88,7 +88,7 @@
                                             <option value="{{$category->id}}">{{$category->name}}</option>
                                         @endforeach
                                     </select>
-                                    <ul class="mt-3 category-error"></ul>
+                                    <ul class="mt-3 category-error text-danger"></ul>
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
@@ -103,7 +103,7 @@
                                     <!--end::Label-->
                                     <!--begin::Input-->
                                     <textarea name="address" class="form-control  mb-3 mb-lg-0" placeholder="Baş ofisin ünvanı" id="address"></textarea>
-                                    <ul class="mt-3 address-error"></ul>
+                                    <ul class="mt-3 address-error text-danger"></ul>
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
@@ -120,7 +120,7 @@
                                     <!--begin::Input-->
                                     <input type="email" name="email" class="form-control  mb-3 mb-lg-0"
                                            placeholder="Email" id="email"/>
-                                    <ul class="mt-3 email-error"></ul>
+                                    <ul class="mt-3 email-error text-danger"></ul>
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
@@ -136,7 +136,7 @@
                                     <!--begin::Input-->
                                     <input type="password" name="password" class="form-control  mb-3 mb-lg-0"
                                            placeholder="Şifrə" id="password"/>
-                                    <ul class="mt-3 password-error"></ul>
+                                    <ul class="mt-3 password-error text-danger"></ul>
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
@@ -152,7 +152,7 @@
                                     <!--begin::Input-->
                                     <input type="password" name="password_confirmation" class="form-control  mb-3 mb-lg-0"
                                            placeholder="Şifrə təkrarı" id="password_confirmation"/>
-                                    <ul class="mt-3 password_confirmation-error"></ul>
+                                    <ul class="mt-3 password_confirmation-error text-danger"></ul>
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->

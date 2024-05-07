@@ -48,7 +48,8 @@ class CustomersController extends Controller
         $htmlElement = view('Backend.pages.categories.sections.category-list-body', compact('data'))->render();
         return response()->json([
             'message' => 'Müştəri uğurla yaradıldı',
-            'htmlElement' => $htmlElement
+            'htmlElement' => $htmlElement,
+            'data' => $create[1]
         ], 200);
     }
 }
