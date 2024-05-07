@@ -24,8 +24,8 @@ class CustomersRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'string|required',
-            'surname' => 'string|required',
+            'name' => 'required|string',
+            'surname' => 'required|string',
             'email' => 'required|email',
             'country' => 'required|string',
             'category' => 'required|string',
@@ -46,7 +46,9 @@ class CustomersRequest extends FormRequest
             'email.email' => 'Düzgün email daxil edin',
             'country.required' => 'Ölkə daxil edilməlidir',
             'category.required' => 'Kateqoriya daxil edilməlidir',
-            'password.required' => 'Şifrə daxil edilməlidir'
+            'password.required' => 'Şifrə daxil edilməlidir',
+            'password_confirmation.required' => 'Şifrə təsdiqi daxil edilməlidir',
+            'password_confirmation.same' => 'Şifrə təsdiqi şifrə ilə uyğun gəlmir'
         ];
     }
 
