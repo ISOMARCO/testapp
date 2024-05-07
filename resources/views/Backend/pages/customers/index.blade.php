@@ -103,16 +103,16 @@
                     beforeSend: function()
                     {
                         $(".create_form input, .create_form button").prop("disabled", true);
-                       $('.create_form ul').empty();
+                        $('.create_form ul').empty();
                     },
                     success: function(e)
                     {
-                        $(".modal").modal("hide");
+                        $("tbody").prepend(e.htmlElement);
+                        console.log(e.message);
                     },
                     error: function(x)
                     {
                         var errorResponse = x.responseJSON || x.responseText;
-                        console.error(errorResponse);
                         if(errorResponse.type === 'validation_error')
                         {
                             $.each(Object.entries(errorResponse.message), function (index, value) {
@@ -123,6 +123,7 @@
                     complete: function()
                     {
                         $(".create_form input, .create_form button").prop("disabled", false);
+                        $('#new_customer').modal('hide');
                     }
                 });
             });

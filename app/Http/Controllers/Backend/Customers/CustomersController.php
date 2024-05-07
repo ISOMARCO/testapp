@@ -44,9 +44,11 @@ class CustomersController extends Controller
                 'errorMessage' => $create[1]
             ], 500);
         }
+        $data = $create[1];
+        $htmlElement = view('Backend.pages.categories.sections.category-list-body', compact('data'))->render();
         return response()->json([
             'message' => 'Müştəri uğurla yaradıldı',
-            'data' => $create[1]
+            'htmlElement' => $htmlElement
         ], 200);
     }
 }
