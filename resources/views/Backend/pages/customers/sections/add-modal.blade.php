@@ -128,7 +128,7 @@
                         </div>
                         <div class="col-6 col-lg-6">
                             <!--begin::Input group-->
-                            <div class="row g-9 mb-8">
+                            <div class="row g-9 mb-4">
                                 <div class="fv-row mb-7 col-12">
                                     <!--begin::Label-->
                                     <label class="required fw-semibold fs-6 mb-2" for="password">Şifrə</label>
