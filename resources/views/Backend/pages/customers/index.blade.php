@@ -117,14 +117,20 @@
                         console.error(errorResponse);
                         if(errorResponse.type === 'validation_error')
                         {
+                            var errorMsg = '';
                             $.each(Object.entries(errorResponse.message), function (index, value) {
-                                console.log(value[1]);
-                                $("." + value[0] + "-error").html("<li>" + value[1] + "</li>");
+                                //$("." + value[0] + "-error").html("<li>" + value[1] + "</li>");
+                                $.each(value[1], function(i, message) {
+                                    errorMsg += "<li>" + message + "</li>";
+                                });
+                                $("." + value[0] + "-error").html("<li>" + errorMsg + "</li>");
                             });
+
                         }
                     },
-                    complete: function()
+                    complete: function(c)
                     {
+                        console.log(c);
                         $(".create_form input, .create_form button").prop("disabled", false);
                     }
                 });
