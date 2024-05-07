@@ -29,11 +29,11 @@
                                 <div class="fv-row mb-7 col-12">
                                     <!--begin::Label-->
                                     <label
-                                        class="required fw-semibold fs-6 mb-2">Müştəri adı</label>
+                                        class="required fw-semibold fs-6 mb-2" for="name">Müştəri adı</label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
                                     <input type="text" name="name" class="form-control  mb-3 mb-lg-0"
-                                           placeholder="Adı" />
+                                           placeholder="Adı" id="name"/>
                                     <ul class="mt-3 name-error"></ul>
                                     <!--end::Input-->
                                 </div>
@@ -46,12 +46,47 @@
                                 <div class="fv-row mb-7 col-12">
                                     <!--begin::Label-->
                                     <label
-                                        class="required fw-semibold fs-6 mb-2">Müştəri soyadı</label>
+                                        class="required fw-semibold fs-6 mb-2" for="surname">Müştəri soyadı</label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="text" name="name" class="form-control  mb-3 mb-lg-0"
-                                           placeholder="Soyadı" />
+                                    <input type="text" name="surname" class="form-control  mb-3 mb-lg-0"
+                                           placeholder="Soyadı" id="surname"/>
                                     <ul class="mt-3 surname-error"></ul>
+                                    <!--end::Input-->
+                                </div>
+                                <!--end::Input group-->
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-6">
+                            <!--begin::Input group-->
+                            <div class="row g-9 mb-8">
+                                <div class="fv-row mb-7 col-12">
+                                    <!--begin::Label-->
+                                    <label
+                                        class="required fw-semibold fs-6 mb-2" for="country">Ölkə</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <select name="country" id="country" class="form-control mb-3 mb-lg-0">
+                                        <option value="Azerbaijan">Azərbaycan</option>
+                                    </select>
+                                    <ul class="mt-3 country-error"></ul>
+                                    <!--end::Input-->
+                                </div>
+                                <!--end::Input group-->
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-6">
+                            <!--begin::Input group-->
+                            <div class="row g-9 mb-8">
+                                <div class="fv-row mb-7 col-12">
+                                    <!--begin::Label-->
+                                    <label class="required fw-semibold fs-6 mb-2">Kateqoriya</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <select name="category_id" id="category_id" class="form-control mb-3 mb-lg-0">
+                                        <option>Kateqoriya1</option>
+                                    </select>
+                                    <ul class="mt-3 category-error"></ul>
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
@@ -62,8 +97,7 @@
                             <button type="button" id="create_modal_btn" class="btn btn-primary">
                                 <span class="indicator-label">Yadda saxla</span>
                             </button>
-                            <button type="reset" id="kt_modal_new_target_cancel"
-                                    class="btn btn-light me-3">Sıfırla</button>
+                            <button type="reset" id="kt_modal_new_target_cancel" class="btn btn-light me-3">Sıfırla</button>
                         </div>
                         <!--end::Actions-->
                     </div>
