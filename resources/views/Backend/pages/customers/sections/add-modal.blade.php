@@ -109,6 +109,7 @@
                                 <!--end::Input group-->
                             </div>
                         </div>
+                        <hr><h4>Giriş Məlumatları</h4><hr>
                         <div class="col-12 col-lg-12">
                             <!--begin::Input group-->
                             <div class="row g-9 mb-8">
