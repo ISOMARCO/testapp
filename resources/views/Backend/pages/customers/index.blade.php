@@ -103,7 +103,7 @@
                     beforeSend: function()
                     {
                         $(".create_form input, .create_form button").prop("disabled", true);
-                       $('[id$="-error"]').html("");
+                       $('.create_form ul').empty();
                     },
                     success: function(e)
                     {
