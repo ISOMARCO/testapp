@@ -13,8 +13,8 @@ class CountrySeeder extends Seeder
      */
     public function run(): void
     {
-        Country::createMany([
-            ['name' => 'Azerbaijan']
+        Country::create([
+            'name' => 'Azerbaijan'
         ]);
     }
 }
