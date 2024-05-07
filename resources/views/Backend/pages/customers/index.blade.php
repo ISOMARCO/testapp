@@ -115,7 +115,7 @@
                         if(errorResponse.type === 'validation_error')
                         {
                             $.each(Object.entries(errorResponse.message), function (index, value) {
-                                $("#" + value[0] + "-error").html("<li>" + value[1] + "</li>");
+                                $("." + value[0] + "-error").html("<li>" + value[1] + "</li>");
                             });
                         }
                     },

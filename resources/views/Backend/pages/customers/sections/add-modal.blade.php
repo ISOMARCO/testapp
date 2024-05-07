@@ -80,10 +80,10 @@
                             <div class="row g-9 mb-8">
                                 <div class="fv-row mb-7 col-12">
                                     <!--begin::Label-->
-                                    <label class="required fw-semibold fs-6 mb-2">Kateqoriya</label>
+                                    <label class="required fw-semibold fs-6 mb-2" for="category">Kateqoriya</label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <select name="category_id" id="category_id" class="form-control mb-3 mb-lg-0">
+                                    <select name="category" id="category" class="form-control mb-3 mb-lg-0">
                                         @foreach($categories as $category)
                                             <option value="{{$category->id}}">{{$category->name}}</option>
                                         @endforeach
@@ -99,12 +99,10 @@
                             <div class="row g-9 mb-8">
                                 <div class="fv-row mb-7 col-12">
                                     <!--begin::Label-->
-                                    <label
-                                        class="required fw-semibold fs-6 mb-2" for="address">Baş ofisin ünvanı</label>
+                                    <label class="required fw-semibold fs-6 mb-2" for="address">Baş ofisin ünvanı</label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <textarea name="address" class="form-control  mb-3 mb-lg-0"
-                                              placeholder="Baş ofisin ünvanı" id="address"></textarea>
+                                    <textarea name="address" class="form-control  mb-3 mb-lg-0" placeholder="Baş ofisin ünvanı" id="address"></textarea>
                                     <ul class="mt-3 address-error"></ul>
                                     <!--end::Input-->
                                 </div>
