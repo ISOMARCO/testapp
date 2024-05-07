@@ -1,4 +1,4 @@
-<div class="modal fade" id="new_customer" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="see_customer" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered min-w-1000px">
         <div class="modal-content rounded">
             <div class="modal-header pb-md-5 border-0 justify-content-end bg-primary">
@@ -44,9 +44,7 @@
                             <div class="fv-row mb-7 col-12">
                                 <label class="w-semibold fs-6 mb-2" for="category">Kateqoriya</label>
                                 <select name="category" id="category" class="form-control mb-3 mb-lg-0" disabled="disabled">
-                                    @foreach($categories as $category)
-                                        <option value="{{$category->id}}">{{$category->name}}</option>
-                                    @endforeach
+                                    <option></option>
                                 </select>
                             </div>
                         </div>

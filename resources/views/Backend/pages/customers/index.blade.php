@@ -90,6 +90,7 @@
         </div>
     </div>
     @include('Backend.pages.customers.sections.add-modal')
+    @include('Backend.pages.customers.sections.see_details')
 @endsection
 @section('scripts')
     <script>
@@ -109,7 +110,6 @@
                     {
                         $("tbody").prepend(e.htmlElement);
                         $('#new_customer').modal('hide');
-                        console.log(e);
                     },
                     error: function(x)
                     {
