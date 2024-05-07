@@ -152,7 +152,7 @@
                                     <!--begin::Input-->
                                     <input type="password" name="password_confirmation" class="form-control  mb-3 mb-lg-0"
                                            placeholder="Şifrə təkrarı" id="password_confirmation"/>
-                                    <ul class="mt-3 password-confirmation-error"></ul>
+                                    <ul class="mt-3 password_confirmation-error"></ul>
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
