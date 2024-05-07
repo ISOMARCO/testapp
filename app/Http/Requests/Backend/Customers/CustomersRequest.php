@@ -26,7 +26,7 @@ class CustomersRequest extends FormRequest
         return [
             'name' => 'string|required',
             'surname' => 'string|required',
-            'email' => 'email|required',
+            'email' => 'required|email',
             'country' => 'string|required',
             'category' => 'string|required',
             'password' => 'string|required'
