@@ -121,16 +121,18 @@
                             $.each(Object.entries(errorResponse.message), function (index, value) {
                                 //$("." + value[0] + "-error").html("<li>" + value[1] + "</li>");
                                 $.each(value[1], function(i, message) {
-                                    errorMsg += "<li>" + message + "</li>";
+                                    if(errorMsg != '')
+                                    {
+                                        errorMsg += "<li>" + message + "</li>";
+                                    }
                                 });
                                 $("." + value[0] + "-error").html("<li>" + errorMsg + "</li>");
                             });
 
                         }
                     },
-                    complete: function(c)
+                    complete: function()
                     {
-                        console.log(c);
                         $(".create_form input, .create_form button").prop("disabled", false);
                     }
                 });
