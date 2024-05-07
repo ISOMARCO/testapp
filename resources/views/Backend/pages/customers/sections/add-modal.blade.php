@@ -23,7 +23,7 @@
                 <!--begin:Form-->
                 <form method="POST" id="kt_modal_new_target_form" class="create_form">
                     <div class="row">
-                        <div class="col-6 col-lg-12">
+                        <div class="col-6 col-lg-6">
                             <!--begin::Input group-->
                             <div class="row g-9 mb-8">
                                 <div class="fv-row mb-7 col-12">
@@ -40,7 +40,7 @@
                                 <!--end::Input group-->
                             </div>
                         </div>
-                        <div class="col-6 col-lg-12">
+                        <div class="col-6 col-lg-6">
                             <!--begin::Input group-->
                             <div class="row g-9 mb-8">
                                 <div class="fv-row mb-7 col-12">
