@@ -94,6 +94,23 @@
                                 <!--end::Input group-->
                             </div>
                         </div>
+                        <div class="col-12 col-lg-12">
+                            <!--begin::Input group-->
+                            <div class="row g-9 mb-8">
+                                <div class="fv-row mb-7 col-12">
+                                    <!--begin::Label-->
+                                    <label
+                                        class="required fw-semibold fs-6 mb-2" for="address">Baş ofisin ünvanı</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <textarea name="address" class="form-control  mb-3 mb-lg-0"
+                                              placeholder="Baş ofisin ünvanı" id="address"></textarea>
+                                    <ul class="mt-3 address-error"></ul>
+                                    <!--end::Input-->
+                                </div>
+                                <!--end::Input group-->
+                            </div>
+                        </div>
                         <!--begin::Actions-->
                         <div class="text-center mt-5">
                             <button type="button" id="create_modal_btn" class="btn btn-primary">
