@@ -109,7 +109,7 @@
                     {
                         $("tbody").prepend(e.htmlElement);
                         $('#new_customer').modal('hide');
-                        console.log(e.message);
+                        console.log(e);
                     },
                     error: function(x)
                     {
