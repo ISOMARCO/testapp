@@ -45,7 +45,7 @@ class CustomersController extends Controller
             ], 500);
         }
         $data = $create[1];
-        $htmlElement = view('Backend.pages.customers.sections.category-list-body', compact('data'))->render();
+        $htmlElement = view('Backend.pages.customers.sections.customer-list-body', compact('data'))->render();
         return response()->json([
             'message' => 'Müştəri uğurla yaradıldı',
             'htmlElement' => $htmlElement,
