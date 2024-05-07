@@ -114,6 +114,7 @@
                     error: function(x)
                     {
                         var errorResponse = x.responseJSON || x.responseText;
+                        console.error(errorResponse);
                         if(errorResponse.type === 'validation_error')
                         {
                             $.each(Object.entries(errorResponse.message), function (index, value) {
