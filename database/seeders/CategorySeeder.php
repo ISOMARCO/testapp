@@ -13,10 +13,14 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        Category::createMany([
-            ['name' => 'Cofeshop'],
-            ['name' => 'Restoran'],
-            ['name' => 'Fastfood']
+        Category::create([
+            'name' => 'Cofeshop'
+        ]);
+        Category::create([
+            'name' => 'Restoran'
+        ]);
+        Category::create([
+            'name' => 'Fastfood'
         ]);
     }
 }
