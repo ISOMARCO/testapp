@@ -63,7 +63,7 @@
                     </div>
                     <div class="menu-item">
                         <!--begin:Menu link-->
-                        <a class="menu-link active" href="{{route('Backend.customers.index')}}">
+                        <a class="menu-link active" href="{{route('Backend.departments.index')}}">
                             <i class="fas fa-building menu-bullet"></i>
                             <span class="menu-title">Şöbələr</span>
                         </a>
