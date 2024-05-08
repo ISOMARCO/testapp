@@ -17,8 +17,9 @@ return new class extends Migration
             $table->string('surname', 40)->nullable();
             $table->string('email', 100)->unique();
             $table->string('password', 255);
-            $table->string('country', 100)->default('Azerbaijan');
+            $table->string('country', 4)->default('AZ');
             $table->integer('category')->nullable();
+            $table->string('address', 500)->nullable();
             $table->string('remember_token', 100)->nullable();
             $table->string('ip', 20)->nullable();
             $table->timestamp('created_at')->useCurrent();

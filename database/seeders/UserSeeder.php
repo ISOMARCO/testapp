@@ -17,7 +17,9 @@ class UserSeeder extends Seeder
             'name' => 'Admin',
             'surname' => 'Admin',
             'email' => 'admin@testapp.com',
-            'password' => '12345'
+            'password' => '12345',
+            'country' => 'AZ',
+            'address' => 'Bakı Nərimanov'
         ]);
     }
 }
