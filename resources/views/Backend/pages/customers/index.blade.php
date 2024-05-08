@@ -1,5 +1,7 @@
 @extends('Backend.layouts.master')
-
+@section('styles')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.10.8/sweetalert2.min.css">
+@endsection
 @section('content')
     <div class="d-flex flex-column flex-column-fluid">
         <!--begin::Content-->
@@ -52,6 +54,7 @@
                                 <td>{{$customer->email}}</td>
                                 <td>{{$customer->country}}</td>
                                 <td style="display: none">{{$customer->address}}</td>
+                                <td style="display: none">{{$customer->category}}</td>
                                 <td>
                                     <button type="button" class="btn btn-sm btn-light btn-active-light-primary"
                                             data-bs-toggle="modal" data-bs-target="#see_customer" id="see_row">
@@ -79,6 +82,7 @@
     @include('Backend.pages.customers.sections.edit-modal')
 @endsection
 @section('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.10.8/sweetalert2.all.min.js"></script>
     <script>
         $(document).ready(function() {
             $(document).on("click", "#create_modal_btn", function(){
@@ -89,7 +93,7 @@
                     dataType: "json",
                     beforeSend: function()
                     {
-                        $(".create_form input, .create_form button").prop("disabled", true);
+                        $(".create_form input, .create_form button, .create_form select, .create_form textarea").prop("disabled", true);
                         $('.create_form ul').empty();
                     },
                     success: function(e)
@@ -110,25 +114,125 @@
                             });
 
                         }
+                        else if(errorResponse.type === 'create_error')
+                        {
+                            Swal.fire({
+                                title: "Xəta baş verdi",
+                                text: errorResponse.message,
+                                icon: 'error',
+                                confirmButtonText: 'OK'
+                            });
+                        }
                     },
                     complete: function()
                     {
-                        $(".create_form input, .create_form button").prop("disabled", false);
+                        $(".create_form input, .create_form button, .create_form select, .create_form textarea").prop("disabled", false);
                     }
                 });
             });
-        });
 
-        $(document).on("click", "#see_row", function() {
-            $("#see_customer #name_surname").val($(this).closest("tr").find("td:eq(1)").text()+" "+$(this).closest("tr").find("td:eq(2)").text());
-            $("#see_customer #email").val($(this).closest("tr").find("td:eq(3)").text());
-        });
+            $(document).on("click", "#edit_modal_btn", function() {
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('Backend.customers.update')}}",
+                    data: $(".edit_form").serialize(),
+                    dataType: "json",
+                    beforeSend: function()
+                    {
+                        $(".edit_form input, .edit_form button, .edit_form select, .edit_form textarea").prop("disabled", true);
+                        $('.edit_form ul').empty();
+                    },
+                    success: function(e)
+                    {
+                        console.log(e);
+                        $('#edit_customer').modal('hide');
+                        $("tbody #category" + e.data.id +" td:eq(1)").text(e.data.name);
+                        $("tbody #category" + e.data.id +" td:eq(2)").text(e.data.surname);
+                        $("tbody #category" + e.data.id +" td:eq(3)").text(e.data.email);
+                        $("tbody #category" + e.data.id +" td:eq(4)").text(e.data.country);
+                        $("tbody #category" + e.data.id + " td:eq(5)").text(e.data.address);
+                        $("tbody #category" + e.data.id + " td:eq(6)").text(e.data.category);
+                    },
+                    error: function(x)
+                    {
+                        var errorResponse = x.responseJSON || x.responseText;
+                        console.error(errorResponse);
+                        if(errorResponse.type === 'validation_error')
+                        {
+                            $.each(Object.entries(errorResponse.message), function (index, value) {
+                                $.each(value[1], function(i, message) {
+                                    $("." + value[0] + "-error").append("<li>" + message + "</li>");
+                                });
+                            });
 
-        $(document).on("click", "#edit_row", function() {
-            $("#edit_customer #name").val($(this).closest("tr").find("td:eq(1)").text());
-            $("#edit_customer #surname").val($(this).closest("tr").find("td:eq(2)").text());
-            $("#edit_customer #email").val($(this).closest("tr").find("td:eq(3)").text());
-            $("#edit_customer #country").val($(this).closest("tr").find("td:eq(4)").text());
+                        }
+                    },
+                    complete: function()
+                    {
+                        $(".edit_form input, .edit_form button, .edit_form select, .edit_form textarea").prop("disabled", false);
+                    }
+                });
+            });
+
+            $(document).on("click", "#see_row", function() {
+                $("#see_customer #name_surname").val($(this).closest("tr").find("td:eq(1)").text()+" "+$(this).closest("tr").find("td:eq(2)").text());
+                $("#see_customer #email").val($(this).closest("tr").find("td:eq(3)").text());
+                $("#see_customer #country").val($(this).closest("tr").find("td:eq(4)").text());
+                $("#see_customer #address").val($(this).closest("tr").find("td:eq(5)").text());
+                $("#see_customer #category").val($(this).closest("tr").find("td:eq(6)").text());
+            });
+
+            $(document).on("click", "#edit_row", function() {
+                $("#edit_customer #id").val($(this).closest("tr").find("td:eq(0)").text());
+                $("#edit_customer #name").val($(this).closest("tr").find("td:eq(1)").text());
+                $("#edit_customer #surname").val($(this).closest("tr").find("td:eq(2)").text());
+                $("#edit_customer #email").val($(this).closest("tr").find("td:eq(3)").text());
+                $("#edit_customer #country").val($(this).closest("tr").find("td:eq(4)").text());
+                $("#edit_customer #address").val($(this).closest("tr").find("td:eq(5)").text());
+                $("#edit_customer #category").val($(this).closest("tr").find("td:eq(6)").text());
+            });
+
+            $(document).on("click", "#delete_row", function() {
+                Swal.fire({
+                    title: "Silmək istədiyinizdən əminsiniz ?",
+                    text: "",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: "Bəli",
+                    cancelButtonText: "Xeyr"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            type: "POST",
+                            url: "{{route('Backend.customers.delete')}}",
+                            data: {id: $(this).closest("tr").find("td:eq(0)").text()},
+                            dataType: "json",
+                            success: function(e)
+                            {
+                                $(this).closest("tr").remove();
+                                Swal.fire({
+                                    title: "Müvəffəqiyyət",
+                                    text: e.message,
+                                    icon: 'success',
+                                    confirmButtonText: 'OK'
+                                });
+                            },
+                            error: function(x)
+                            {
+                                var errorResponse = x.responseJSON || x.responseText;
+                                Swal.fire({
+                                    title: "Xəta baş verdi",
+                                    text: errorResponse.message,
+                                    icon: 'error',
+                                    confirmButtonText: 'OK'
+                                });
+                            }
+                        });
+                    }
+                });
+            });
         });
     </script>
 @endsection

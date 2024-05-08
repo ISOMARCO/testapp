@@ -8,7 +8,7 @@
                 </div>
             </div>
             <div class="modal-body scroll-y px-10 px-lg-15 pt-5 pb-15">
-                <form method="POST" id="kt_modal_new_target_form" class="create_form">
+                <form method="POST" id="kt_modal_new_target_form" class="edit_form">
                     <div class="row">
                         <div class="col-6 col-lg-6">
                             <div class="row g-9 mb-8">
@@ -35,7 +35,7 @@
                                 <div class="fv-row mb-7 col-12">
                                     <label class="required fw-semibold fs-6 mb-2" for="country">Ölkə</label>
                                     <select name="country" id="country" class="form-control mb-3 mb-lg-0">
-                                        <option value="Azerbaijan" selected>Azərbaycan</option>
+                                        <option value="AZ">Azərbaycan</option>
                                     </select>
                                     <ul class="mt-3 country-error text-danger"></ul>
                                 </div>
@@ -77,7 +77,7 @@
                         <div class="col-6 col-lg-6">
                             <div class="row g-9 mb-4">
                                 <div class="fv-row mb-7 col-12">
-                                    <label class="required fw-semibold fs-6 mb-2" for="password">Şifrə</label>
+                                    <label class="fw-semibold fs-6 mb-2" for="password">Şifrə</label>
                                     <input type="password" name="password" class="form-control  mb-3 mb-lg-0"
                                            placeholder="Şifrə" id="password"/>
                                     <ul class="mt-3 password-error text-danger"></ul>
@@ -87,7 +87,7 @@
                         <div class="col-6 col-lg-6">
                             <div class="row g-9 mb-4">
                                 <div class="fv-row mb-7 col-12">
-                                    <label class="required fw-semibold fs-6 mb-2" for="password_confirmation">Şifrə təkrarı</label>
+                                    <label class="fw-semibold fs-6 mb-2" for="password_confirmation">Şifrə təkrarı</label>
                                     <input type="password" name="password_confirmation" class="form-control  mb-3 mb-lg-0"
                                            placeholder="Şifrə təkrarı" id="password_confirmation"/>
                                     <ul class="mt-3 password_confirmation-error text-danger"></ul>
@@ -102,6 +102,7 @@
                             <button type="reset" id="kt_modal_new_target_cancel" class="btn btn-light me-3">Sıfırla</button>
                         </div>
                     </div>
+                    <input type="hidden" name="id" id="id">
                     @csrf
                 </form>
             </div>

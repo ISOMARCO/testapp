@@ -24,7 +24,7 @@
                             <div class="fv-row mb-4 col-12">
                                 <label class="fw-semibold fs-6 mb-2" for="country">Ölkə</label>
                                 <input type="text" name="surname" class="form-control  mb-3 mb-lg-0"
-                                       placeholder="Ölkə" id="country" disabled="disabled" value="Azerbaijan"/>
+                                       placeholder="Ölkə" id="country" disabled="disabled"/>
                             </div>
                         </div>
                     </div>
@@ -32,8 +32,11 @@
                         <div class="row g-9 mb-8">
                             <div class="fv-row mb-4 col-12">
                                 <label class="fw-semibold fs-6 mb-2" for="category">Kateqoriya</label>
-                                <input type="text" name="category" class="form-control  mb-3 mb-lg-0"
-                                       placeholder="Kateqoriya" id="category" disabled="disabled"/>
+                                <select name="category" id="category" class="form-control mb-3 mb-lg-0" disabled="disabled">
+                                    @foreach($categories as $category)
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                     </div>

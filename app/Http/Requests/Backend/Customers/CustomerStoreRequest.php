@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\JsonResponse;
-class CustomersRequest extends FormRequest
+class CustomerStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,8 @@ class CustomersRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|min:3|max:70',
-            'surname' => 'required|string|min:3|max:70',
+            'name' => 'required|string|min:3|max:40',
+            'surname' => 'required|string|min:3|max:40',
             'email' => 'required|email|unique:users,email|max:150',
             'country' => 'required|string',
             'category' => 'required|string',

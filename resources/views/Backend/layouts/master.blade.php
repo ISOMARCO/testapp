@@ -27,6 +27,7 @@
     <link href="{{asset('assets/css/style.bundle.css')}}" rel="stylesheet" type="text/css" />
     <!--end::Global Stylesheets Bundle-->
     <script>// Frame-busting to prevent site from being loaded within a frame without permission (click-jacking) if (window.top != window.self) { window.top.location.replace(window.self.location.href); }</script>
+    @yield('styles')
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -4180,7 +4181,7 @@
                 if (result.isConfirmed) {
                     window.location.href = "{{route('Backend.auth.logout')}}";
                 }
-            })
+            });
         });
     });
 </script>

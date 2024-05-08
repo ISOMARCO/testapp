@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Backend\Customers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Backend\Customers\CustomersRequest;
-use Illuminate\Http\Request;
+use App\Http\Requests\Backend\Customers\CustomerStoreRequest;
+use App\Http\Requests\Backend\Customers\CustomerUpdateRequest;
 use App\Services\Backend\Customers\CustomersService;
 use App\Services\Backend\Categories\CategoriesService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Request;
 class CustomersController extends Controller
 {
     protected $customersService;
@@ -32,9 +33,9 @@ class CustomersController extends Controller
      * @param CustomersRequest $customersRequest
      * @return JsonResponse
      */
-    public function createRequest(CustomersRequest $customersRequest) : JsonResponse
+    public function createRequest(CustomerStoreRequest $customerStoreRequest) : JsonResponse
     {
-        $data = $customersRequest->validated();
+        $data = $customerStoreRequest->validated();
         $create = $this->customersService->createCustomer($data);
         if($create[0] === false)
         {
@@ -49,6 +50,35 @@ class CustomersController extends Controller
         return response()->json([
             'message' => 'Müştəri uğurla yaradıldı',
             'htmlElement' => $htmlElement
-        ], 200);
+        ]);
+    }
+
+    public function updateRequest(CustomerUpdateRequest $customerUpdateRequest) : JsonResponse
+    {
+        $data = $customerUpdateRequest->validated();
+        $update = $this->customersService->updateCustomer($data);
+        if($update[0] === false)
+        {
+            return response()->json([
+                'type' => 'update_error',
+                'message' => 'Müştəri yenilənərkən xəta baş verdi',
+                'errorMessage' => $update[1]
+            ], 500);
+        }
+        $data = $update[1];
+        return response()->json([
+            'message' => 'Müştəri uğurla yeniləndi',
+            'data' => $data
+        ]);
+    }
+
+    public function deleteRequest(Request $request) : JsonResponse
+    {
+        $id = request()->post('id');
+        $customer = User::findOrFail($id);
+        $customer->delete();
+        return response()->json([
+            'message' => 'Müştəri uğurla silindi'
+        ]);
     }
 }
