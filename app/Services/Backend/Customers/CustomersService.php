@@ -61,12 +61,16 @@ class CustomersService
      * @param array $data
      * @return array|true[]
      */
-    public function deleteRequest(int $id) : array
+    public function deleteCustomer(int $id) : array
     {
+        if(auth()->user()->id == $id)
+        {
+            return [false, 'Bu müştəri silinə bilməz'];
+        }
         try
         {
             User::findOrFail($id)->delete();
-            return [true];
+            return [true, $id];
         } catch(QueryException $e)
         {
             return [false, $e->getMessage()];

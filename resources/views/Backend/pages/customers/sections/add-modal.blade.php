@@ -38,7 +38,7 @@
                                     <label
                                         class="required fw-semibold fs-6 mb-2" for="country">Ölkə</label>
                                     <select name="country" id="country" class="form-control mb-3 mb-lg-0">
-                                        <option value="Azerbaijan">Azərbaycan</option>
+                                        <option value="AZ">Azərbaycan</option>
                                     </select>
                                     <ul class="mt-3 country-error text-danger"></ul>
                                 </div>

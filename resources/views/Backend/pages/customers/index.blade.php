@@ -211,17 +211,19 @@
                             dataType: "json",
                             success: function(e)
                             {
-                                $(this).closest("tr").remove();
+                                console.log(e);
                                 Swal.fire({
                                     title: "Müvəffəqiyyət",
                                     text: e.message,
                                     icon: 'success',
                                     confirmButtonText: 'OK'
                                 });
+                                $("tbody #category"+e.id).remove();
                             },
                             error: function(x)
                             {
                                 var errorResponse = x.responseJSON || x.responseText;
+                                console.log(errorResponse);
                                 Swal.fire({
                                     title: "Xəta baş verdi",
                                     text: errorResponse.message,

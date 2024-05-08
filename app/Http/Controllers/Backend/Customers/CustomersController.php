@@ -9,7 +9,7 @@ use App\Services\Backend\Customers\CustomersService;
 use App\Services\Backend\Categories\CategoriesService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\View\View;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 class CustomersController extends Controller
 {
     protected $customersService;
@@ -74,11 +74,18 @@ class CustomersController extends Controller
 
     public function deleteRequest(Request $request) : JsonResponse
     {
-        $id = request()->post('id');
-        $customer = User::findOrFail($id);
-        $customer->delete();
+        $delete = $this->customersService->deleteCustomer($request->id);
+        if($delete[0] === false)
+        {
+            return response()->json([
+                'type' => 'delete_error',
+                'message' => 'Müştəri silinərkən xəta baş verdi',
+                'errorMessage' => $delete[1]
+            ], 500);
+        }
         return response()->json([
-            'message' => 'Müştəri uğurla silindi'
+            'message' => 'Müştəri uğurla silindi',
+            'id' => $delete[1]
         ]);
     }
 }
