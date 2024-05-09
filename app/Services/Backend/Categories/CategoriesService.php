@@ -2,6 +2,7 @@
 namespace App\Services\Backend\Categories;
 
 use App\Models\Category;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\QueryException;
 class CategoriesService
 {
@@ -10,9 +11,9 @@ class CategoriesService
     }
 
     /**
-     * @return object
+     * @return Collection
      */
-    public function getCategories() : object
+    public function getCategories() : Collection
     {
         return Category::all();
     }
@@ -36,6 +37,18 @@ class CategoriesService
         try
         {
             return [true, Category::create($data)];
+        } catch(QueryException $e)
+        {
+            return [false, $e->getMessage()];
+        }
+    }
+
+    public function deleteCategory(int $id) : array
+    {
+        try
+        {
+            Category::findOrFail($id)->delete();
+            return [true, $id];
         } catch(QueryException $e)
         {
             return [false, $e->getMessage()];

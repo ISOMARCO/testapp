@@ -68,4 +68,20 @@ class CategoriesController extends Controller
             'message' => 'Kateqoriya əlavə edilərkən xəta baş verdi'
         ], 500);
     }
+
+    public function deleteRequest(Request $request)
+    {
+        $delete = $this->categoriesService->deleteCategory($request->id);
+        if($delete[0] === true)
+        {
+            return response()->json([
+                'message' => 'Kateqoriya uğurla silindi',
+                'id' => $request->id
+            ]);
+        }
+        return response()->json([
+            'type' => 'delete_error',
+            'message' => 'Kateqoriya silinərkən xəta baş verdi'
+        ], 500);
+    }
 }

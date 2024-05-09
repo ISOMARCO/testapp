@@ -10,6 +10,7 @@ use App\Services\Backend\Categories\CategoriesService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use App\Services\Backend\Countries\CountriesService;
 class CustomersController extends Controller
 {
     protected $customersService;
@@ -26,11 +27,12 @@ class CustomersController extends Controller
     {
         $customers = $this->customersService->getCustomers();
         $categories = (new CategoriesService())->getCategories();
-        return view('Backend.pages.customers.index', compact('customers', 'categories'));
+        $countries = (new CountriesService())->getCountries();
+        return view('Backend.pages.customers.index', compact('customers', 'categories', 'countries'));
     }
 
     /**
-     * @param CustomersRequest $customersRequest
+     * @param CustomerStoreRequest $customerStoreRequest
      * @return JsonResponse
      */
     public function createRequest(CustomerStoreRequest $customerStoreRequest) : JsonResponse
@@ -53,6 +55,10 @@ class CustomersController extends Controller
         ]);
     }
 
+    /**
+     * @param CustomerUpdateRequest $customerUpdateRequest
+     * @return JsonResponse
+     */
     public function updateRequest(CustomerUpdateRequest $customerUpdateRequest) : JsonResponse
     {
         $data = $customerUpdateRequest->validated();
@@ -72,6 +78,10 @@ class CustomersController extends Controller
         ]);
     }
 
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function deleteRequest(Request $request) : JsonResponse
     {
         $delete = $this->customersService->deleteCustomer($request->id);

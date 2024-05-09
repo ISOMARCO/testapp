@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('password', 255);
             $table->string('country', 4)->default('AZ');
             $table->integer('category')->nullable();
+            $table->integer('department')->nullable();
             $table->string('address', 500)->nullable();
             $table->string('remember_token', 100)->nullable();
             $table->string('ip', 20)->nullable();

@@ -11,7 +11,7 @@ class Country extends Model
 {
     use HasFactory, SoftDeletes;
     protected $fillable = [
-        'name'
+        'code'
     ];
 
     protected $dates = [
@@ -25,12 +25,4 @@ class Country extends Model
         'updated_at' => 'timestamp',
         'deleted_at' => 'timestamp'
     ];
-
-    protected function name() : Attribute
-    {
-        return Attribute::make(
-            get: fn(string $value) => ucfirst($value),
-            set: fn(string $value) => ucfirst($value)
-        );
-    }
 }

@@ -2,6 +2,7 @@
 namespace App\Services\Backend\Customers;
 
 use App\Models\User;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\QueryException;
 class CustomersService
 {
@@ -10,9 +11,9 @@ class CustomersService
     }
 
     /**
-     * @return object
+     * @return Collection
      */
-    public function getCustomers() : object
+    public function getCustomers() : Collection
     {
         return User::all();
     }

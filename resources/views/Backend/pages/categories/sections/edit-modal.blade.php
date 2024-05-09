@@ -33,8 +33,8 @@
                                     <!--end::Label-->
                                     <!--begin::Input-->
                                     <input type="text" name="name" class="form-control  mb-3 mb-lg-0" id="name"
-                                           placeholder="Kateqoriya adı" value=""/>
-                                    <ul id="name-error" class="text-danger mt-3"></ul>
+                                           placeholder="Kateqoriya adı"/>
+                                    <ul class="name-error text-danger mt-3 text-danger"></ul>
                                     <!--end::Input-->
                                 </div>
 

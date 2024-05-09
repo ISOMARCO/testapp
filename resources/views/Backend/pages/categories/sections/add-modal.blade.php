@@ -34,7 +34,7 @@
                                     <!--begin::Input-->
                                     <input type="text" name="name" class="form-control  mb-3 mb-lg-0"
                                            placeholder="Kateqoriya adı" />
-                                    <ul class="mt-3 name-error"></ul>
+                                    <ul class="mt-3 name-error text-danger"></ul>
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->

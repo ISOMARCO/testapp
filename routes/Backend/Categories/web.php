@@ -6,3 +6,4 @@ use App\Http\Controllers\Backend\Categories\CategoriesController;
 Route::get('/categories', [CategoriesController::class, 'index'])->name('index')->middleware('auth');
 Route::post('/categories/update', [CategoriesController::class, 'updateRequest'])->name('update')->middleware('auth');
 Route::post('/categories/create', [CategoriesController::class, 'createRequest'])->name('create')->middleware('auth');
+Route::post('/categories/delete', [CategoriesController::class, 'deleteRequest'])->name('delete')->middleware('auth');

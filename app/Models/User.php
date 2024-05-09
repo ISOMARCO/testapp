@@ -25,7 +25,9 @@ class User extends Authenticatable
         'password',
         'email',
         'country',
-        'category'
+        'category',
+        'department',
+        'address'
     ];
 
     /**
@@ -85,8 +87,8 @@ class User extends Authenticatable
     protected function country() : Attribute
     {
         return Attribute::make(
-            get: fn(string $value) => ucfirst($value),
-            set: fn(string $value) => ucfirst($value)
+            get: fn(string $value) => strtoupper($value),
+            set: fn(string $value) => strtoupper($value)
         );
     }
 
@@ -96,5 +98,10 @@ class User extends Authenticatable
             get: fn(string $value) => ucfirst($value),
             set: fn(string $value) => ucfirst($value)
         );
+    }
+
+    public function parent()
+    {
+        return $this->belongsTo(User::class, 'department');
     }
 }

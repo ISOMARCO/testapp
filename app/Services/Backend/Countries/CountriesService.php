@@ -2,11 +2,15 @@
 namespace App\Services\Backend\Countries;
 
 use App\Models\Country;
-use App\Enums\Country as CountryEnum;
+use Illuminate\Database\Eloquent\Collection;
+
 class CountriesService
 {
-    public function getCountries()
+    /**
+     * @return object|Collection
+     */
+    public function getCountries() : Collection
     {
-
+        return Country::all();
     }
 }
