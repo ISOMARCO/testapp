@@ -13,9 +13,9 @@
                         <div class="row g-9 mb-8">
                             <div class="fv-row mb-4 col-12">
                                 <!--begin::Label-->
-                                <label class="fw-semibold fs-6 mb-2" for="name_surname">Müştəri ad soyadı</label>
-                                <input type="text" name="name_surname" class="form-control  mb-3 mb-lg-0"
-                                       placeholder="Ad soyad" id="name_surname" disabled="disabled"/>
+                                <label class="fw-semibold fs-6 mb-2" for="name_surname">Müştəri ad</label>
+                                <input type="text" name="name" class="form-control  mb-3 mb-lg-0"
+                                       placeholder="Ad" id="name" disabled="disabled"/>
                             </div>
                         </div>
                     </div>

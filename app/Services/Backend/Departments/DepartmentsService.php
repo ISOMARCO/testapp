@@ -4,7 +4,6 @@ namespace App\Services\Backend\Departments;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\QueryException;
-use Illuminate\Support\Facades\DB;
 
 class DepartmentsService
 {
@@ -17,9 +16,7 @@ class DepartmentsService
      */
     public function getDepartments() : Collection
     {
-        return User::with(['parent' => function($query){
-            return $query->select('id', 'name');
-        }])->whereNotNull('department')->get();
+        return User::whereNotNull('customer')->get();
     }
 
     /**
@@ -27,7 +24,7 @@ class DepartmentsService
      */
     public function getCustomers() : Collection
     {
-        return User::whereNull('department')->get();
+        return User::whereNull('customer')->get();
     }
 
     public function createDepartment(array $data) : array
@@ -36,6 +33,26 @@ class DepartmentsService
         {
             unset($data['password_confirmation']);
             return [true, User::create($data)];
+        } catch(QueryException $e)
+        {
+            return [false, $e->getMessage()];
+        }
+    }
+
+    public function updateDepartment(array $data) : array
+    {
+        try
+        {
+            $return = $data;
+            $department = User::findOrFail($data['id']);
+            if($data['password'] == NULL)
+            {
+                unset($data['password']);
+            }
+            unset($data['password_confirmation']);
+            unset($data['id']);
+            $department->update($data);
+            return [true, $return];
         } catch(QueryException $e)
         {
             return [false, $e->getMessage()];

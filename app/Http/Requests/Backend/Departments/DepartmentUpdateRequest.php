@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Requests\Backend\Customers;
+namespace App\Http\Requests\Backend\Departments;
 
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\JsonResponse;
-class CustomerStoreRequest extends FormRequest
+use Illuminate\Validation\Rule;
+
+class DepartmentUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,12 +26,18 @@ class CustomerStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|min:3|max:40',
-            'email' => 'required|email|unique:users,email|max:150',
-            'country' => 'required|string',
-            'category' => 'required|string',
-            'password' => 'required|string|min:5|max:100',
-            'password_confirmation' => 'required|string|same:password|min:5|max:100'
+            'id' => 'required|integer',
+            'name' => 'required|string|min:3|max:255',
+            'email' => [
+                'required',
+                'email',
+                'max:150',
+                Rule::unique('users', 'email')->ignore($this->input('id'))
+            ],
+            'password' => 'sometimes|nullable|string|min:5|max:100',
+            'password_confirmation' => 'same:password',
+            'address' => 'required|string|max:500',
+            'department' => 'nullable|integer'
         ];
     }
 
@@ -42,19 +50,16 @@ class CustomerStoreRequest extends FormRequest
             'name.required' => 'Ad daxil edilməlidir',
             'email.required' => 'Email daxil edilməlidir',
             'email.email' => 'Düzgün email daxil edin',
-            'country.required' => 'Ölkə daxil edilməlidir',
-            'category.required' => 'Kateqoriya daxil edilməlidir',
             'password.required' => 'Şifrə daxil edilməlidir',
-            'password_confirmation.required' => 'Şifrə təsdiqi daxil edilməlidir',
-            'password_confirmation.same' => 'Şifrə təsdiqi şifrə ilə uyğun gəlmir',
             'password.min' => 'Şifrə minimum 5 simvoldan ibarət olmalıdır',
             'password.max' => 'Şifrə maksimum 100 simvoldan ibarət olmalıdır',
-            'password_confirmation.min' => 'Şifrə təsdiqi minimum 5 simvoldan ibarət olmalıdır',
-            'password_confirmation.max' => 'Şifrə təsdiqi maksimum 100 simvoldan ibarət olmalıdır',
-            'email.unique' => 'Bu email artıq istifadə olunub',
+            'email.max' => 'Email maksimum 150 simvoldan ibarət olmalıdır',
             'name.min' => 'Ad minimum 3 simvoldan ibarət olmalıdır',
-            'name.max' => 'Ad maksimum 70 simvoldan ibarət olmalıdır',
-            'email.max' => 'Email maksimum 150 simvoldan ibarət olmalıdır'
+            'name.max' => 'Ad maksimum 255 simvoldan ibarət olmalıdır',
+            'password_confirmation.same' => 'Şifrələr uyğun gəlmir',
+            'address.required' => 'Ünvan daxil edilməlidir',
+            'address.max' => 'Ünvan maksimum 500 simvoldan ibarət olmalıdır',
+            'email.unique' => 'Bu email artıq istifadə olunub'
         ];
     }
 

@@ -15,7 +15,7 @@ class CustomersService
      */
     public function getCustomers() : Collection
     {
-        return User::all();
+        return User::whereNull('customer')->get();
     }
 
     /**

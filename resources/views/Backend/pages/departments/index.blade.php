@@ -40,9 +40,11 @@
                             <tr id="department">
                                 <td>{{$department->id}}</td>
                                 <td>{{$department->name}}</td>
-                                <td>{{$department->customer}}</td>
+                                <td>{{$customerName($department->customer)}}</td>
                                 <td>{{$department->email}}</td>
                                 <td>{{$department->country}}</td>
+                                <td style="display: none">{{$department->address}}</td>
+                                <td style="display: none">{{$department->customer}}</td>
                                 <td>
                                     <button type="button" class="btn btn-sm btn-light btn-active-light-primary"
                                             data-bs-toggle="modal" data-bs-target="#see_department" id="see_row">
@@ -66,6 +68,8 @@
         </div>
     </div>
     @include('Backend.pages.departments.sections.add-modal')
+    @include('Backend.pages.departments.sections.see_details')
+    @include('Backend.pages.departments.sections.edit-modal')
 @endsection
 @section('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.10.8/sweetalert2.all.min.js"></script>
@@ -113,6 +117,67 @@
                        $(".create_form button, .create_form input, .create_form select, .create_form textarea").prop("disabled", false);
                    }
                });
+            });
+
+            $(document).on("click", "#see_row", function() {
+                var row = $(this).closest("tr");
+                $("#see_department #name").val(row.find('td:eq(1)').text());
+                $("#see_department #customer").val(row.find('td:eq(2)').text());
+                $("#see_department #email").val(row.find('td:eq(3)').text());
+                $("#see_department #address").val(row.find('td:eq(5)').text());
+            });
+
+            $(document).on("click", "#edit_row", function() {
+                var row = $(this).closest("tr");
+                $("#edit_department #id").val(row.find('td:eq(0)').text());
+                $("#edit_department #name").val(row.find('td:eq(1)').text());
+                $("#edit_department #customer").val(row.find('td:eq(6)').text());
+                $("#edit_department #email").val(row.find('td:eq(3)').text());
+                $("#edit_department #address").val(row.find('td:eq(5)').text());
+            });
+
+            $(document).on("click", "#edit_modal_btn", function() {
+                $.ajax({
+                    type: "POST",
+                    url: "{{ route('Backend.departments.update') }}",
+                    data: $(".edit_form").serialize(),
+                    dataType: "json",
+                    beforeSend: function()
+                    {
+                        $(".edit_form button, .edit_form input, .edit_form select, .edit_form textarea").prop("disabled", true);
+                        $(".edit_form ul").empty();
+                    },
+                    success: function(e)
+                    {
+                        console.log(e);
+                    },
+                    error: function (x)
+                    {
+                        var errorResponse = x.responseJSON || x.responseText;
+                        if(errorResponse.type === 'validation_error')
+                        {
+                            $.each(Object.entries(errorResponse.message), function (index, value) {
+                                $.each(value[1], function(i, message) {
+                                    $("." + value[0] + "-error").append("<li>" + message + "</li>");
+                                });
+                            });
+                        }
+                        else if(errorResponse.type === 'update_error')
+                        {
+                            Swal.fire({
+                                title: "Xəta baş verdi",
+                                text: errorResponse.message,
+                                icon: 'error',
+                                confirmButtonText: 'OK'
+                            });
+                        }
+                        console.error(errorResponse);
+                    },
+                    complete: function()
+                    {
+                        $(".edit_form button, .edit_form input, .edit_form select, .edit_form textarea").prop("disabled", false);
+                    }
+                });
             });
         });
     </script>

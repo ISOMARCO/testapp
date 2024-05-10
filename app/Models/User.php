@@ -20,13 +20,12 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'surname',
         'email',
         'password',
         'email',
         'country',
         'category',
-        'department',
+        'customer',
         'address'
     ];
 
@@ -68,14 +67,6 @@ class User extends Authenticatable
         );
     }
 
-    protected function surname() : Attribute
-    {
-        return Attribute::make(
-            get: fn(string $value) => ucfirst($value),
-            set: fn(string $value) => ucfirst($value)
-        );
-    }
-
     protected function email() : Attribute
     {
         return Attribute::make(
@@ -90,18 +81,5 @@ class User extends Authenticatable
             get: fn(string $value) => strtoupper($value),
             set: fn(string $value) => strtoupper($value)
         );
-    }
-
-    protected function category() : Attribute
-    {
-        return Attribute::make(
-            get: fn(string $value) => ucfirst($value),
-            set: fn(string $value) => ucfirst($value)
-        );
-    }
-
-    public function parent()
-    {
-        return $this->belongsTo(User::class, 'department');
     }
 }

@@ -1,7 +1,6 @@
 <tr id="category{{$data->id}}">
     <td>{{$data->id}}</td>
     <td>{{$data->name}}</td>
-    <td>{{$data->surname}}</td>
     <td>{{$data->email}}</td>
     <td>{{$data->country}}</td>
     <td style="display: none">{{$data->address}}</td>

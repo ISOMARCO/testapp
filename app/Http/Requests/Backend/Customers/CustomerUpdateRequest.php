@@ -27,19 +27,16 @@ class CustomerUpdateRequest extends FormRequest
         return [
             'id' => 'integer',
             'name' => 'required|string|min:3|max:40',
-            'surname' => 'required|string|min:3|max:40',
             'email' => [
                 'required',
                 'email',
                 'max:150',
-                Rule::unique('users')->ignore($this->user()->id)
+                Rule::unique('users', 'email')->ignore($this->input('id'))
             ],
             'country' => 'required|string',
             'category' => 'required|string',
             'password' => 'sometimes|nullable|string|min:5|max:100',
-            'password_confirmation' => [
-                'same:password'
-            ]
+            'password_confirmation' => 'same:password'
         ];
     }
 
@@ -47,7 +44,6 @@ class CustomerUpdateRequest extends FormRequest
     {
         return [
             'name.required' => 'Ad daxil edilməlidir',
-            'surname.required' => 'Soyad daxil edilməlidir',
             'email.required' => 'Email daxil edilməlidir',
             'email.email' => 'Düzgün email daxil edin',
             'country.required' => 'Ölkə daxil edilməlidir',
@@ -60,8 +56,6 @@ class CustomerUpdateRequest extends FormRequest
             'email.unique' => 'Bu email artıq istifadə olunub',
             'name.min' => 'Ad minimum 3 simvoldan ibarət olmalıdır',
             'name.max' => 'Ad maksimum 70 simvoldan ibarət olmalıdır',
-            'surname.min' => 'Soyad minimum 3 simvoldan ibarət olmalıdır',
-            'surname.max' => 'Soyad maksimum 70 simvoldan ibarət olmalıdır',
             'email.max' => 'Email maksimum 150 simvoldan ibarət olmalıdır'
         ];
     }

@@ -10,7 +10,7 @@
             <div class="modal-body scroll-y px-10 px-lg-15 pt-5 pb-15">
                 <form method="POST" id="kt_modal_new_target_form" class="create_form">
                     <div class="row">
-                        <div class="col-6 col-lg-6">
+                        <div class="col-12 col-lg-12">
                             <div class="row g-9 mb-8">
                                 <div class="fv-row mb-7 col-12">
                                     <label
@@ -18,17 +18,6 @@
                                     <input type="text" name="name" class="form-control  mb-3 mb-lg-0"
                                            placeholder="Adı" id="name"/>
                                     <ul class="mt-3 name-error text-danger"></ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-lg-6">
-                            <div class="row g-9 mb-8">
-                                <div class="fv-row mb-7 col-12">
-                                    <label
-                                        class="required fw-semibold fs-6 mb-2" for="surname">Müştəri soyadı</label>
-                                    <input type="text" name="surname" class="form-control  mb-3 mb-lg-0"
-                                           placeholder="Soyadı" id="surname"/>
-                                    <ul class="mt-3 surname-error text-danger"></ul>
                                 </div>
                             </div>
                         </div>

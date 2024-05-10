@@ -1,6 +1,7 @@
 @extends('Backend.layouts.master')
 @section('styles')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.10.8/sweetalert2.min.css">
+    <link rel="stylesheet" href="{{asset('assets/plugins/custom/toastr/toastr.min.css')}}"
 @endsection
 @section('content')
     <div class="d-flex flex-column flex-column-fluid">
@@ -29,7 +30,6 @@
                         <tr class="text-start text-white bg-primary fw-bold fs-7 text-uppercase gs-0">
                             <th>Id</th>
                             <th>Ad</th>
-                            <th>Soyad</th>
                             <th>Email</th>
                             <th>Ölkə</th>
                             <th>Əməliyyatlar</th>
@@ -40,7 +40,6 @@
                             <tr id="category{{$customer->id}}">
                                 <td>{{$customer->id}}</td>
                                 <td>{{$customer->name}}</td>
-                                <td>{{$customer->surname}}</td>
                                 <td>{{$customer->email}}</td>
                                 <td>{{$customer->country}}</td>
                                 <td style="display: none">{{$customer->address}}</td>
@@ -73,6 +72,7 @@
 @endsection
 @section('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.10.8/sweetalert2.all.min.js"></script>
+    <script src="{{asset('assets/plugins/toastr/toastr.min.js')}}"></script>
     <script>
         $(document).ready(function() {
             $(document).on("click", "#create_modal_btn", function(){
@@ -90,6 +90,7 @@
                     {
                         $("tbody").prepend(e.htmlElement);
                         $('#new_customer').modal('hide');
+                        toastr.success(e.message);
                     },
                     error: function(x)
                     {
@@ -137,11 +138,11 @@
                         console.log(e);
                         $('#edit_customer').modal('hide');
                         $("tbody #category" + e.data.id +" td:eq(1)").text(e.data.name);
-                        $("tbody #category" + e.data.id +" td:eq(2)").text(e.data.surname);
-                        $("tbody #category" + e.data.id +" td:eq(3)").text(e.data.email);
-                        $("tbody #category" + e.data.id +" td:eq(4)").text(e.data.country);
-                        $("tbody #category" + e.data.id + " td:eq(5)").text(e.data.address);
-                        $("tbody #category" + e.data.id + " td:eq(6)").text(e.data.category);
+                        $("tbody #category" + e.data.id +" td:eq(2)").text(e.data.email);
+                        $("tbody #category" + e.data.id +" td:eq(3)").text(e.data.country);
+                        $("tbody #category" + e.data.id + " td:eq(4)").text(e.data.address);
+                        $("tbody #category" + e.data.id + " td:eq(5)").text(e.data.category);
+                        toastr.success(e.message);
                     },
                     error: function(x)
                     {
@@ -165,21 +166,20 @@
             });
 
             $(document).on("click", "#see_row", function() {
-                $("#see_customer #name_surname").val($(this).closest("tr").find("td:eq(1)").text()+" "+$(this).closest("tr").find("td:eq(2)").text());
-                $("#see_customer #email").val($(this).closest("tr").find("td:eq(3)").text());
-                $("#see_customer #country").val($(this).closest("tr").find("td:eq(4)").text());
-                $("#see_customer #address").val($(this).closest("tr").find("td:eq(5)").text());
-                $("#see_customer #category").val($(this).closest("tr").find("td:eq(6)").text());
+                $("#see_customer #name").val($(this).closest("tr").find("td:eq(1)").text());
+                $("#see_customer #email").val($(this).closest("tr").find("td:eq(2)").text());
+                $("#see_customer #country").val($(this).closest("tr").find("td:eq(3)").text());
+                $("#see_customer #address").val($(this).closest("tr").find("td:eq(4)").text());
+                $("#see_customer #category").val($(this).closest("tr").find("td:eq(5)").text());
             });
 
             $(document).on("click", "#edit_row", function() {
                 $("#edit_customer #id").val($(this).closest("tr").find("td:eq(0)").text());
                 $("#edit_customer #name").val($(this).closest("tr").find("td:eq(1)").text());
-                $("#edit_customer #surname").val($(this).closest("tr").find("td:eq(2)").text());
-                $("#edit_customer #email").val($(this).closest("tr").find("td:eq(3)").text());
-                $("#edit_customer #country").val($(this).closest("tr").find("td:eq(4)").text());
-                $("#edit_customer #address").val($(this).closest("tr").find("td:eq(5)").text());
-                $("#edit_customer #category").val($(this).closest("tr").find("td:eq(6)").text());
+                $("#edit_customer #email").val($(this).closest("tr").find("td:eq(2)").text());
+                $("#edit_customer #country").val($(this).closest("tr").find("td:eq(3)").text());
+                $("#edit_customer #address").val($(this).closest("tr").find("td:eq(4)").text());
+                $("#edit_customer #category").val($(this).closest("tr").find("td:eq(5)").text());
             });
 
             $(document).on("click", "#delete_row", function() {
