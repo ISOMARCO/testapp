@@ -1,6 +1,7 @@
 @extends('Backend.layouts.master')
 @section('styles')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.10.8/sweetalert2.min.css">
+    <link rel="stylesheet" href="{{asset('assets/plusings/custom/toastr/toastr.min.css')}}">
 @endsection
 @section('content')
     <div class="d-flex flex-column flex-column-fluid">
@@ -37,10 +38,10 @@
                         </thead>
                         <tbody class="text-gray-600 fw-semibold">
                         @foreach($departments as $department)
-                            <tr id="department">
+                            <tr id="department{{$department->id}}">
                                 <td>{{$department->id}}</td>
                                 <td>{{$department->name}}</td>
-                                <td>{{$customerName($department->customer)}}</td>
+                                <td>{{optional($department->Customer->name) ?? NULL}}</td>
                                 <td>{{$department->email}}</td>
                                 <td>{{$department->country}}</td>
                                 <td style="display: none">{{$department->address}}</td>
@@ -73,6 +74,7 @@
 @endsection
 @section('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.10.8/sweetalert2.all.min.js"></script>
+    <script src="{{asset('assets/plusings/custom/toastr/toastr.min.js')}}"></script>
     <script>
         $(document).ready(function() {
             $(document).on("click", "#create_modal_btn", function() {
@@ -134,6 +136,7 @@
                 $("#edit_department #customer").val(row.find('td:eq(6)').text());
                 $("#edit_department #email").val(row.find('td:eq(3)').text());
                 $("#edit_department #address").val(row.find('td:eq(5)').text());
+                $("#edit_department #country").val(row.find('td:eq(4)').text());
             });
 
             $(document).on("click", "#edit_modal_btn", function() {
@@ -149,6 +152,16 @@
                     },
                     success: function(e)
                     {
+                        $("#department" + e.data.id + " td:eq(1)").text(e.data.name);
+                        $("#department" + e.data.id + " td:eq(2)").text(e.data.customer);
+                        $("#department" + e.data.id + " td:eq(3)").text(e.data.email);
+                        $("#department" + e.data.id + " td:eq(4)").text(e.data.country);
+                        $("#department" + e.data.id + " td:eq(5)").text(e.data.address);
+                        $("#department"+ e.data.id + "td:eq(6)").text(e.data.customer);
+                        $("#department" + e.data.id + " td:eq(6)").text(e.data.customerId);
+
+                        $("#edit_department").modal("hide");
+                        toastr.success(e.message);
                         console.log(e);
                     },
                     error: function (x)
@@ -176,6 +189,50 @@
                     complete: function()
                     {
                         $(".edit_form button, .edit_form input, .edit_form select, .edit_form textarea").prop("disabled", false);
+                    }
+                });
+            });
+
+            $(document).on("click", "#delete_row", function() {
+                var row = $(this).closest("tr");
+                Swal.fire({
+                    title: "Silmək istədiyinizdən əminsiniz?",
+                    text: "Bu əməliyyatı geri qaytarmaq mümkün deyil!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "Bəli, sil!",
+                    cancelButtonText: "Xeyr, silmə!",
+                    reverseButtons: true
+                }).then(function(result) {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            type: "POST",
+                            url: "{{ route('Backend.departments.delete') }}",
+                            data: {
+                                id: row.find('td:eq(0)').text()
+                            },
+                            dataType: "json",
+                            success: function(e)
+                            {
+                                row.remove();
+                                toastr.success(e.message);
+                                console.log(e);
+                            },
+                            error: function (x)
+                            {
+                                var errorResponse = x.responseJSON || x.responseText;
+                                if(errorResponse.type === 'delete_error')
+                                {
+                                    Swal.fire({
+                                        title: "Xəta baş verdi",
+                                        text: errorResponse.message,
+                                        icon: 'error',
+                                        confirmButtonText: 'OK'
+                                    });
+                                }
+                                console.error(errorResponse);
+                            }
+                        });
                     }
                 });
             });

@@ -16,7 +16,7 @@ class DepartmentsService
      */
     public function getDepartments() : Collection
     {
-        return User::whereNotNull('customer')->get();
+        return User::with('Customer')->whereNotNull('customer')->get();
     }
 
     /**
@@ -27,6 +27,10 @@ class DepartmentsService
         return User::whereNull('customer')->get();
     }
 
+    /**
+     * @param array $data
+     * @return array
+     */
     public function createDepartment(array $data) : array
     {
         try
@@ -39,6 +43,10 @@ class DepartmentsService
         }
     }
 
+    /**
+     * @param array $data
+     * @return array
+     */
     public function updateDepartment(array $data) : array
     {
         try
@@ -57,5 +65,34 @@ class DepartmentsService
         {
             return [false, $e->getMessage()];
         }
+    }
+
+    /**
+     * @param int $id
+     * @return array|true[]
+     */
+    public function deleteDepartment(int $id) : array
+    {
+        if(auth()->user()->id == $id)
+        {
+            return [false, 'Bu istifadəçini silmək olmaz'];
+        }
+        try
+        {
+            User::findOrFail($id)->delete();
+            return [true];
+        } catch(QueryException $e)
+        {
+            return [false, $e->getMessage()];
+        }
+    }
+
+    /**
+     * @param $customerId
+     * @return User
+     */
+    public function getCustomer($customerId) : User
+    {
+        return User::select(['id', 'name'])->where('id', $customerId)->first();
     }
 }

@@ -71,7 +71,7 @@ class CustomersController extends Controller
                 'errorMessage' => $update[1]
             ], 500);
         }
-        $data = $update[1];
+        $data = (object) $update[1];
         return response()->json([
             'message' => 'Müştəri uğurla yeniləndi',
             'data' => $data

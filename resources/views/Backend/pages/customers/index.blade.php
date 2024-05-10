@@ -88,7 +88,7 @@
                     },
                     success: function(e)
                     {
-                        $("tbody").prepend(e.htmlElement);
+                        $(".table tbody").prepend(e.htmlElement);
                         $('#new_customer').modal('hide');
                         toastr.success(e.message);
                     },
@@ -184,14 +184,13 @@
 
             $(document).on("click", "#delete_row", function() {
                 Swal.fire({
-                    title: "Silmək istədiyinizdən əminsiniz ?",
-                    text: "",
-                    icon: 'question',
+                    title: "Silmək istədiyinizdən əminsiniz?",
+                    text: "Bu əməliyyatı geri qaytarmaq mümkün deyil!",
+                    icon: "warning",
                     showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: "Bəli",
-                    cancelButtonText: "Xeyr"
+                    confirmButtonText: "Bəli, sil!",
+                    cancelButtonText: "Xeyr, silmə!",
+                    reverseButtons: true
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $.ajax({

@@ -13,7 +13,7 @@
                         <div class="row g-9 mb-8">
                             <div class="fv-row mb-7 col-12">
                                 <label
-                                    class="required fw-semibold fs-6 mb-2" for="name">Ad</label>
+                                    class="fw-semibold fs-6 mb-2" for="name">Ad</label>
                                 <input type="text" name="name" class="form-control  mb-3 mb-lg-0"
                                        placeholder="Ad" id="name" disabled/>
                             </div>
@@ -30,7 +30,7 @@
                     <div class="col-12 col-lg-12">
                         <div class="row g-9 mb-8">
                             <div class="fv-row mb-7 col-12">
-                                <label class="required fw-semibold fs-6 mb-2" for="address">Ünvan</label>
+                                <label class="fw-semibold fs-6 mb-2" for="address">Ünvan</label>
                                 <textarea name="address" class="form-control  mb-3 mb-lg-0" placeholder="Ünvan" id="address" disabled></textarea>
                             </div>
                         </div>
@@ -38,7 +38,7 @@
                     <div class="col-12 col-lg-12">
                         <div class="row g-9 mb-4">
                             <div class="fv-row mb-7 col-12">
-                                <label class="required fw-semibold fs-6 mb-2" for="email">Email</label>
+                                <label class="fw-semibold fs-6 mb-2" for="email">Email</label>
                                 <input type="email" name="email" class="form-control  mb-3 mb-lg-0"
                                        placeholder="Email" id="email" disabled/>
                             </div>

@@ -37,7 +37,8 @@ class DepartmentUpdateRequest extends FormRequest
             'password' => 'sometimes|nullable|string|min:5|max:100',
             'password_confirmation' => 'same:password',
             'address' => 'required|string|max:500',
-            'department' => 'nullable|integer'
+            'customer' => 'nullable|integer',
+            'country' => 'nullable|string'
         ];
     }
 

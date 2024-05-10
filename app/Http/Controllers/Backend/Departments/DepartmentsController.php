@@ -20,17 +20,7 @@ class DepartmentsController extends Controller
     {
         $departments = $this->departmentsService->getDepartments();
         $customers = $this->departmentsService->getCustomers();
-        $customerName = function($customerId) use ($customers): ?string {
-            foreach($customers as $customer)
-            {
-                if($customer->id === $customerId)
-                {
-                    return $customer->name;
-                }
-            }
-            return NULL;
-        };
-        return view('Backend.pages.departments.index', compact('departments', 'customers', 'customerName'));
+        return view('Backend.pages.departments.index', compact('departments', 'customers'));
     }
 
     public function createRequest(DepartmentStoreRequest $departmentStoreRequest) : JsonResponse
@@ -65,11 +55,30 @@ class DepartmentsController extends Controller
                 'errorMessage' => $update[1]
             ], 500);
         }
-        $data = $update[1];
-        $htmlElement = view('Backend.pages.departments.sections.department-list-body', compact('data'))->render();
+        $department = (object) $update[1];
+        $customDepartment = $this->departmentsService->getCustomer($department->customer);
+        $department->customer = $customDepartment->name;
+        $department->customerId = $customDepartment->id;
         return response()->json([
             'message' => 'Şöbə uğurla yeniləndi',
-            'htmlElement' => $htmlElement
+            'data' => $department
+        ]);
+    }
+
+    public function deleteRequest()
+    {
+        $id = request()->post('id');
+        $delete = $this->departmentsService->deleteDepartment($id);
+        if($delete[0] === false)
+        {
+            return response()->json([
+                'type' => 'delete_error',
+                'message' => 'Şöbə silinərkən xəta baş verdi',
+                'errorMessage' => $delete[1]
+            ], 500);
+        }
+        return response()->json([
+            'message' => 'Şöbə uğurla silindi'
         ]);
     }
 }

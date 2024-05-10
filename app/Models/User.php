@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Attribute;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
@@ -81,5 +82,13 @@ class User extends Authenticatable
             get: fn(string $value) => strtoupper($value),
             set: fn(string $value) => strtoupper($value)
         );
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function Customer() : BelongsTo
+    {
+        return $this->belongsTo(User::class, 'customer')->select('id', 'name');
     }
 }

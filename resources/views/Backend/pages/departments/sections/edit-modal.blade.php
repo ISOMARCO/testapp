@@ -83,6 +83,7 @@
                     </div>
                     @csrf
                     <input type="hidden" name="id" id="id">
+                    <input type="hidden" name="country" id="country">
                 </form>
             </div>
         </div>
