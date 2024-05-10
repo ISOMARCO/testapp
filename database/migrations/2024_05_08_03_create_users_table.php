@@ -27,6 +27,7 @@ return new class extends Migration
             $table->timestamp('deleted_at')->nullable();
 
             $table->foreign('category')->references('id')->on('categories')->onDelete('restrict');
+            $table->foreign('customer')->references('id')->on('users')->onDelete('set null');
         });
     }
 

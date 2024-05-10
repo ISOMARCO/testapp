@@ -41,7 +41,7 @@
                             <tr id="department{{$department->id}}">
                                 <td>{{$department->id}}</td>
                                 <td>{{$department->name}}</td>
-                                <td>{{optional($department->Customer->name) ?? NULL}}</td>
+                                <td>{{ $department->Customer ? $department->Customer->name : NULL }}</td>
                                 <td>{{$department->email}}</td>
                                 <td>{{$department->country}}</td>
                                 <td style="display: none">{{$department->address}}</td>

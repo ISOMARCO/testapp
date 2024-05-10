@@ -14,12 +14,20 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'name' => 'Admin',
-            'surname' => 'Admin',
+            'name' => 'Mc Donalds',
             'email' => 'admin@testapp.com',
             'password' => '12345',
             'country' => 'AZ',
             'address' => 'Bakı Nərimanov'
+        ]);
+
+        User::create([
+            'name' => 'Yasamal filialı',
+            'email' => 'yasamal@testapp.com',
+            'password' => '12345',
+            'country' => 'AZ',
+            'address' => 'Bakı Yasamal',
+            'customer' => '1'
         ]);
     }
 }

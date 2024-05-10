@@ -40,6 +40,7 @@ class CustomersService
      */
     public function updateCustomer(array $data) : array
     {
+
         try
         {
             $return = $data;
