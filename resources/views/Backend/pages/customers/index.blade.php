@@ -1,7 +1,7 @@
 @extends('Backend.layouts.master')
 @section('styles')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.10.8/sweetalert2.min.css">
-    <link rel="stylesheet" href="{{asset('assets/plugins/custom/toastr/toastr.min.css')}}"
+    <link rel="stylesheet" href="{{asset('assets/plugins/custom/toastr/toastr.min.css')}}">
 @endsection
 @section('content')
     <div class="d-flex flex-column flex-column-fluid">
@@ -41,9 +41,10 @@
                                 <td>{{$customer->id}}</td>
                                 <td>{{$customer->name}}</td>
                                 <td>{{$customer->email}}</td>
-                                <td>{{$customer->country}}</td>
+                                <td>{{getCountryName($customer->country)}}</td>
                                 <td style="display: none">{{$customer->address}}</td>
                                 <td style="display: none">{{$customer->category}}</td>
+                                <td style="display: none">{{$customer->country}}</td>
                                 <td>
                                     <button type="button" class="btn btn-sm btn-light btn-active-light-primary"
                                             data-bs-toggle="modal" data-bs-target="#see_customer" id="see_row">
@@ -139,9 +140,10 @@
                         $('#edit_customer').modal('hide');
                         $("tbody #category" + e.data.id +" td:eq(1)").text(e.data.name);
                         $("tbody #category" + e.data.id +" td:eq(2)").text(e.data.email);
-                        $("tbody #category" + e.data.id +" td:eq(3)").text(e.data.country);
+                        $("tbody #category" + e.data.id +" td:eq(3)").text(e.data.countryName);
                         $("tbody #category" + e.data.id + " td:eq(4)").text(e.data.address);
                         $("tbody #category" + e.data.id + " td:eq(5)").text(e.data.category);
+                        $("tbody #category" + e.data.id +" td:eq(6)").text(e.data.country);
                         toastr.success(e.message);
                     },
                     error: function(x)
@@ -177,7 +179,7 @@
                 $("#edit_customer #id").val($(this).closest("tr").find("td:eq(0)").text());
                 $("#edit_customer #name").val($(this).closest("tr").find("td:eq(1)").text());
                 $("#edit_customer #email").val($(this).closest("tr").find("td:eq(2)").text());
-                $("#edit_customer #country").val($(this).closest("tr").find("td:eq(3)").text());
+                $("#edit_customer #country").val($(this).closest("tr").find("td:eq(6)").text());
                 $("#edit_customer #address").val($(this).closest("tr").find("td:eq(4)").text());
                 $("#edit_customer #category").val($(this).closest("tr").find("td:eq(5)").text());
             });

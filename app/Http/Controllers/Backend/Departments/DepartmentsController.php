@@ -35,8 +35,12 @@ class DepartmentsController extends Controller
                 'errorMessage' => $create[1]
             ], 500);
         }
-        $data = $create[1];
-        $htmlElement = view('Backend.pages.departments.sections.department-list-body', compact('data'))->render();
+        $department = $create[1];
+        $customer = $this->departmentsService->getCustomer($department->customer);
+        $department->customerId = $department->customer;
+        $department->customer = $customer->name;
+        $department->country = $customer->country;
+        $htmlElement = view('Backend.pages.departments.sections.department-list-body', compact('department'))->render();
         return response()->json([
             'message' => 'Şöbə uğurla yaradıldı',
             'htmlElement' => $htmlElement

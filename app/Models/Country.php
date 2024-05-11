@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Attribute;
-
+use App\Enums\Country as CountryEnum;
 class Country extends Model
 {
     use HasFactory, SoftDeletes;
@@ -24,5 +24,9 @@ class Country extends Model
         'created_at' => 'timestamp',
         'updated_at' => 'timestamp',
         'deleted_at' => 'timestamp'
+    ];
+
+    protected $guarded = [
+        'id'
     ];
 }

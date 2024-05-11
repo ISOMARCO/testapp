@@ -16,7 +16,7 @@ class DepartmentsService
      */
     public function getDepartments() : Collection
     {
-        return User::with('Customer')->whereNotNull('customer')->get();
+        return User::with('joinCustomer')->whereNotNull('customer')->get();
     }
 
     /**
@@ -93,6 +93,6 @@ class DepartmentsService
      */
     public function getCustomer($customerId) : User
     {
-        return User::select(['id', 'name'])->where('id', $customerId)->first();
+        return User::select(['id', 'name', 'country'])->where('id', $customerId)->first();
     }
 }

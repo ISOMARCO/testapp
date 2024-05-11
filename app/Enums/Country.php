@@ -20,4 +20,15 @@ enum Country : string
     case IN = 'Hindistan';
     case ID = 'İndoneziya';
     case PK = 'Pakistan';
+
+    public static function fromName(string $name): string
+    {
+        $name = strtoupper($name);
+        foreach (self::cases() as $status) {
+            if( $name === $status->name ){
+                return $status->value;
+            }
+        }
+        return $name;
+    }
 }

@@ -11,6 +11,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Services\Backend\Countries\CountriesService;
+use App\Enums\Country;
 class CustomersController extends Controller
 {
     protected $customersService;
@@ -72,6 +73,7 @@ class CustomersController extends Controller
             ], 500);
         }
         $data = (object) $update[1];
+        $data->countryName = getCountryName($data->country);
         return response()->json([
             'message' => 'Müştəri uğurla yeniləndi',
             'data' => $data

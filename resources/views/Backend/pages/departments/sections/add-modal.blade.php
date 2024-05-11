@@ -25,7 +25,7 @@
                             <div class="row g-9 mb-8">
                                 <div class="fv-row mb-7 col-12">
                                     <label class="required fw-semibold fs-6 mb-2" for="surname">Müştəri</label>
-                                    <select id="department" name="department" class="form-control">
+                                    <select id="customer" name="customer" class="form-control">
                                         @foreach($customers as $customer)
                                             <option value="{{$customer->id}}">{{$customer->name}}</option>
                                         @endforeach

@@ -41,11 +41,12 @@
                             <tr id="department{{$department->id}}">
                                 <td>{{$department->id}}</td>
                                 <td>{{$department->name}}</td>
-                                <td>{{ $department->Customer ? $department->Customer->name : NULL }}</td>
+                                <td>{{ $department->joinCustomer ? $department->joinCustomer->name : NULL }}</td>
                                 <td>{{$department->email}}</td>
-                                <td>{{$department->country}}</td>
+                                <td>{{getCountryName($department->country)}}</td>
                                 <td style="display: none">{{$department->address}}</td>
                                 <td style="display: none">{{$department->customer}}</td>
+                                <td style="display: none">{{$department->country}}</td>
                                 <td>
                                     <button type="button" class="btn btn-sm btn-light btn-active-light-primary"
                                             data-bs-toggle="modal" data-bs-target="#see_department" id="see_row">
@@ -90,7 +91,9 @@
                    },
                    success: function(e)
                    {
-                       console.log(e);
+                       $(".table tbody").prepend(e.htmlElement);
+                       $("#new_department").modal("hide");
+                          toastr.success(e.message);
                    },
                    error: function (x)
                    {
@@ -136,7 +139,7 @@
                 $("#edit_department #customer").val(row.find('td:eq(6)').text());
                 $("#edit_department #email").val(row.find('td:eq(3)').text());
                 $("#edit_department #address").val(row.find('td:eq(5)').text());
-                $("#edit_department #country").val(row.find('td:eq(4)').text());
+                $("#edit_department #country").val(row.find('td:eq(7)').text());
             });
 
             $(document).on("click", "#edit_modal_btn", function() {

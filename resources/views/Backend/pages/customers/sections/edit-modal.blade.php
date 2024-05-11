@@ -25,7 +25,9 @@
                                 <div class="fv-row mb-7 col-12">
                                     <label class="required fw-semibold fs-6 mb-2" for="country">Ölkə</label>
                                     <select name="country" id="country" class="form-control mb-3 mb-lg-0">
-                                        <option value="AZ">Azərbaycan</option>
+                                        @foreach($countries as $country)
+                                            <option value="{{$country->code}}">{{getCountryName($country->code)}}</option>
+                                        @endforeach
                                     </select>
                                     <ul class="mt-3 country-error text-danger"></ul>
                                 </div>

@@ -77,18 +77,10 @@ class User extends Authenticatable
         );
     }
 
-    protected function country() : Attribute
-    {
-        return Attribute::make(
-            get: fn(string $value) => strtoupper($value),
-            set: fn(string $value) => strtoupper($value)
-        );
-    }
-
     /**
      * @return BelongsTo
      */
-    public function Customer() : BelongsTo
+    public function joinCustomer() : BelongsTo
     {
         return $this->belongsTo(User::class, 'customer')->select('id', 'name');
     }
